@@ -19,7 +19,6 @@
             <li><a href="#tab-{{categoryDetail.id}}">{{categoryDetail.name}}</a></li>
             <?php }?>
           </ul>
-          
           <!-- - - - - - - - - - - - - - End navigation of tabs - - - - - - - - - - - - - - - - -->
 
           <!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->

@@ -1,13 +1,30 @@
+<script language="javascript" src="/js/jquery.validate.min.js" type="text/javascript"></script>
+<script language="javascript" src="/themeadmin/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script src="/themeadmin/scripts/sites/index.js"></script>
 <div class="content animate-panel">
     <div class="row">
         <div class="hpanel">
             
             <div class="panel-body">
-                <form class="form-horizontal" method="post" id="addCategory" action="/admin/managecategories/add">
+                <form class="form-horizontal" method="post" id="editPartner" action="/admin/partner/edit/{{data.id}}">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-6">
-                            <input name="name" type="text" class="form-control" id="name" maxlength="100">
+                            <input maxlength="100" name="name" type="text" class="form-control" id="name" value="<?php echo $partner->name?>">
+                        </div>
+                    </div>
+                    <div class= "form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-6">
+                            <img src="<?php echo $partner -> image != '' ? $partner -> image : '/files/images/Logo-26-Dec-2015-3.jpg';?>" class="col-sm-6 imageUpload img-responsive pl0 pr0" id="image_thumbnail_show" style="width: 130px; height: 130px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Image for Thumbnail (320 x 480)</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" name="image_thumbnail" id="image_thumbnail" value="{{partner.image}}" type="hidden">
+                            <a class="btn btn-primary" href="javascript:void(0)" onclick="openKCFinder('image_thumbnail','image_thumbnail_show')"><i class="fa fa-folder-open-o"></i> Chọn thumbnail</a>
                         </div>
                     </div>
                     <div class="form-group">
@@ -22,6 +39,7 @@
     </div>
 </div>
 <script language="javascript" src="/js/jquery.validate.min.js" type="text/javascript"></script>
+<!-- <script language="javascript" src="/admin/scripts/country/country.js" type="text/javascript"></script> -->
 <script type="text/javascript">
     $(document).ready(function() {
         $("#addCategory").validate({
@@ -58,7 +76,6 @@
         });
     });
 </script>
-
 
 <div id="myModal" class="modal fade hmodal-info" role="dialog">
     <div class="modal-dialog">

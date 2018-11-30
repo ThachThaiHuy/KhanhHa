@@ -21,22 +21,22 @@
                             <span>Cài đặt chung</span>
                         </a>
                     </li>
-                    <li class="nav-parent <?php echo $contrllerName == 'managemanufactures' ? 'nav-expanded nav-active' : '';?>">
+                    <li class="nav-parent <?php echo $contrllerName == 'partner' ? 'nav-expanded nav-active' : '';?>">
                         <a href="#">
                             <i class="fa fa-columns" aria-hidden="true"></i>
-                            <span>Thương hiệu</span>
+                            <span>Đối Tác</span>
                         </a>
                         <ul class="nav nav-children">
-                            <li class="<?php echo $contrllerName == 'managemanufactures' && $actionName== 'add' ? 'nav-active' : '';?>">
-                                <a href="/admin/managemanufactures/add">
+                            <li class="<?php echo $contrllerName == 'partner' && $actionName== 'add' ? 'nav-active' : '';?>">
+                                <a href="/admin/partner/add">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
-                                    <span>Tạo Thương hiệu</span>
+                                    <span>Tạo Đối Tác</span>
                                 </a>
                             </li>
-                            <li class="<?php echo $contrllerName == 'managemanufactures' && $actionName== 'index' ? 'nav-active' : '';?>">
-                                <a href="/admin/managemanufactures">
+                            <li class="<?php echo $contrllerName == 'partner' && $actionName== 'index' ? 'nav-active' : '';?>">
+                                <a href="/admin/partner">
                                     <i class="fa fa-list-alt" aria-hidden="true"></i>
-                                    <span>DS Thương hiệu</span>
+                                    <span>DS Đối Tác</span>
                                 </a>
                             </li>
                         </ul>
@@ -101,7 +101,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-parent <?php echo $contrllerName == 'manageorders' ? 'nav-expanded nav-active' : '';?>">
+                <!--     <li class="nav-parent <?php echo $contrllerName == 'manageorders' ? 'nav-expanded nav-active' : '';?>">
                         <a href="#">
                             <i class="fa fa-columns" aria-hidden="true"></i>
                             <span>Đặt hàng</span>
@@ -114,7 +114,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-parent <?php echo $contrllerName == 'managebanner' ? 'nav-expanded nav-active' : '';?>">
                         <a href="#">
                             <i class="fa fa-columns" aria-hidden="true"></i>

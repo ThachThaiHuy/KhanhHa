@@ -1,7 +1,6 @@
 <div class="content animate-panel">
     <div class="row">
         <div class="hpanel">
-            
             <div class="panel-body">
                 <?php if($this->flashSession->has()) {?>
                     <?php echo $this -> flashSession -> output(); ?>
@@ -11,6 +10,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>image</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -19,14 +19,15 @@
                         <?php foreach($data->items as $item){?>
                             <tr>
                                 <td><?php echo $item->name;?></td>
-                                <td><a class="btn btn-info " href="/admin/managecategories/edit/<?php echo $item->id?>"><i class="fa fa-paste"></i> Edit</a></td>
-                                <td><a class="btn btn-danger" href="/admin/managecategories/delete/<?php echo $item->id?>"><i class="fa fa-trash-o"></i> <span class="bold">Delete</span></a></td>
+                                <td><img src="<?php echo $item->image;?>" width="150px" height ="50px"/></td>
+                                <td><a class="btn btn-info " href="/admin/partner/edit/<?php echo $item->id?>"><i class="fa fa-paste"></i> Edit</a></td>
+                                <td><a class="btn btn-danger" href="/admin/partner/delete/<?php echo $item->id?>"><i class="fa fa-trash-o"></i> <span class="bold">Delete</span></a></td>
                             </tr>
                         <?php }?>
                         </tbody>
                     </table>
                 </div>
-                <?= $this->partial('partials/paging') ?>
+                {{ partial('partials/paging') }}
             </div>
         </div>
     </div>

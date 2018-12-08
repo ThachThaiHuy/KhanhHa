@@ -13,11 +13,11 @@
       <div class="row">
 
         <div class="main_header_row">
-          <div class="col-sm-2">
+          <div class="col-sm-2 logo-content">
             <!-- - - - - - - - - - - - - - Logo - - - - - - - - - - - - - - - - -->
             <a href="/" class="logo">
 
-              <img src="{{about.logo_header}}" width="" height="90px" alt="Chemist">
+              <img src="{{about.logo_header}}" style="margin-left: 10px;" width="" height="115px" alt="Chemist">
 
             </a>
             <!-- - - - - - - - - - - - - - End of logo - - - - - - - - - - - - - - - - -->
@@ -25,8 +25,8 @@
 
           <div class="col-sm-10">
             <div class="col-sm-7">
-              <h2 class="color-green">CÔNG TY TNHH TM DV XNK KHÁNH HÀ</h2>
-              <h3 class="color-green">KHACH HA CHEMICALS</h3>
+              <h2 class="color-green"><strong>{{about.company_name}}</strong></h2>
+              <h3 class="color-green">{{about.company_name_line2}}</h3>
              </div>
             <!-- - - - - - - - - - - - - - End call to action - - - - - - - - - - - - - - - - -->
           <div class="col-sm-5">

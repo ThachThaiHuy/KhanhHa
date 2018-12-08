@@ -1,6 +1,6 @@
 <section class="section">
     <div class="container">
-        <div id="google-map"  style="height:400px;" class="full-box"></div>
+        <!-- <div id="google-map"  style="height:400px;" class="full-box"></div> -->
         <div class="">
             <div class="row">
             
@@ -83,34 +83,6 @@
         </div>
     </div>
 </section>
-<script src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyC32tJGWb0S6LpHFntcIH4k1vOAK1TEPZ8"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        ContactUs.init();
-    });
-    var ContactUs = function () {
-        return {
-            init: function () {
-                $(document).ready(function(){
 
-                    var uluru = {lat: 10.839125, lng:106.752440};
-                    var map = new google.maps.Map(document.getElementById('google-map'), {
-                        zoom: 16,
-                        center: uluru
-                    });
-                    var marker = new google.maps.Marker({
-                        position: uluru,
-                        map: map,
-                        title: 'Thành phố Hồ Chí Minh'
-                    });
-                    var infowindow = new google.maps.InfoWindow({
-                        content: '<div class="contact-map-title"><strong>' + <?php echo "'".DOMAIN_NAME."'"?> + '</strong></div><div class="contact-map-title"><a href="#">' + <?php echo "'".$about -> phone."'";?> + '</a></div><div class="contact-map-address"><?php echo $about -> address?></div>'
-                    });
-                    infowindow.open(map, marker);
-                });
-            }
-        };
-    }();
-</script>
 <script language="javascript" src="/js/jquery.validate.min.js" type="text/javascript"></script>
 <!-- <script src="/js/contact/contact.js"></script> -->

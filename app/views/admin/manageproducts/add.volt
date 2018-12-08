@@ -10,17 +10,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Thương hiệu</label>
-                        <div class="col-sm-4">
-                            <select name="manufacture" class="form-control" id="manufacture">
-                                <option value="0">-- Không có thương hiệu --</option>
-                                <?php foreach ($manufactures as $item) { ?>
-                                    <option value="<?php echo $item -> id?>"><?php echo $item -> name?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">Danh mục</label>
                         <div class="col-sm-4">
                             <select name="category" class="form-control" id="category">
@@ -30,6 +19,7 @@
                             </select>
                         </div>
                     </div>
+                    <?php if($categoryDetailList -> count() > 0){ ?>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Chi tiết danh mục</label>
                         <div class="col-sm-8">
@@ -43,6 +33,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Giá</label>
                         <div class="col-sm-4">

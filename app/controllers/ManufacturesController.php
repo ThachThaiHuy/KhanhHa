@@ -8,6 +8,7 @@ use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 class ManufacturesController extends ControllerBase
 {
     public function indexAction($id = 0) {
+        $this->response->setHeader('HTTP/1.0 404','Not Found');
         $orderby = 'if(sale_price=0,price,sale_price) asc';
         $sortby = $this -> session -> get('sortby');
         if ($sortby == 1) {

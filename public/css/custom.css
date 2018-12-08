@@ -126,10 +126,21 @@ input,textarea{
     color: black !important;
 }
 input:invalid,textarea:invalid {
-  background-color: pink;
+  background-color: transparent;
   border: 1px solid red;
 }
 input:valid ,textarea:valid{
   background-color: transparent;
   border: 0px solid red;
+}
+
+.company-name{
+    font-size: 2em;
+    vertical-align: center;
+}
+
+.logo-content{
+    padding: 0;
+    text-align: right;
+    vertical-align: top;
 }

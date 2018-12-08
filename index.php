@@ -15,7 +15,7 @@ $myDosDetector = new DosDetector();
 $myDosDetector->run();
 
 define('DIR_POST', "files/posts/");
-define('DOMAIN_NAME', "hangxachtayconan.com");
+define('DOMAIN_NAME', "khanhhatrading.com");
 
 
 

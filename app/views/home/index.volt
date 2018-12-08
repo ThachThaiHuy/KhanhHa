@@ -22,7 +22,7 @@
           <!-- - - - - - - - - - - - - - End navigation of tabs - - - - - - - - - - - - - - - - -->
 
           <!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->
-
+          <?php if($categoryDetailList->count() > 0){ ?>
           <div class="tab_containers_wrap">
             <?php foreach ($categoryDetailList as $categoryDetail) {
               $productList = $products -> findByCatelogyDetailAndLimit($categoryDetail -> id, 5);
@@ -42,9 +42,21 @@
               <!-- - - - - - - - - - - - - - End of view all - - - - - - - - - - - - - - - - -->
             </div>
             <?php }?>
-
           </div>
-
+          <?php } else { 
+          $productList = $products -> findByCategory($category -> id, 5); ?>
+              <!-- - - - - - - - - - - - - - Carousel of featured products - - - - - - - - - - - - - - - - -->
+              <div class="owl_carousel carousel_in_tabs">
+              <?php foreach ($productList as $product) {?>
+                {{ partial('partials/product_item',['item':product])}}
+                <?php }?>
+              </div>
+              <!-- - - - - - - - - - - - - - View all - - - - - - - - - - - - - - - - -->
+              <footer class="bottom_box">
+                <a href="/danh-muc/{{category.slug}}" class="button_grey middle_btn">Xem tất cả sản phẩm</a>
+              </footer>
+              <!-- - - - - - - - - - - - - - End of view all - - - - - - - - - - - - - - - - -->
+          <?php } ?>
           <!-- - - - - - - - - - - - - - End of tabs containers - - - - - - - - - - - - - - - - -->
 
         </div><!--/ .tabs.section_offset-->

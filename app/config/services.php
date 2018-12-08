@@ -19,7 +19,9 @@ use MyApp\Auth;
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
  */
+
 $di = new FactoryDefault();
+
 
 // set var config use in controller
 $di->set('config', function () use ($config) {
@@ -93,7 +95,6 @@ $di->set('flash', function(){
 $di->setShared('session', function () {
     $session = new SessionAdapter();
     $session->start();
-
     return $session;
 });
 
@@ -109,7 +110,7 @@ $di->set('modelsManager', function() {
  });
 
 
-/*$di->set(
+$di->set(
     'dispatcher',
     function() use ($di) {
 
@@ -129,6 +130,14 @@ $di->set('modelsManager', function() {
                             )
                         );
                         return false;
+                    default:
+                        $dispatcher->forward(
+                            array(
+                                'controller' => 'error',
+                                'action'     => 'index',
+                            )
+                        );
+                        return false;
                 }
             }
         );
@@ -137,7 +146,7 @@ $di->set('modelsManager', function() {
         return $dispatcher;
     },
     true
-);*/
+);
 
 $di->set('acl', function() {
 	return new Acl();

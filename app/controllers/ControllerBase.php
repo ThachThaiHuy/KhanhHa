@@ -18,7 +18,7 @@ class ControllerBase extends Controller
         $this -> view -> titleForLayout = DEFAULT_NAME;
         $this -> view -> saleKeyWords = DEFAULT_NAME;
         $banner = new Banner();
-        $ban = $banner ->findAll();
+        $ban = $banner ->findAll("id");
         $this -> view -> bannerList = $ban;
         $products = new Products();
         $productNewSidebar = $products -> findByStatus(PRODUCT_NEW, 3);

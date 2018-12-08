@@ -45,8 +45,7 @@ class PartnerController extends ControllerBase {
             }
             $partner = new Partner();
             $partner -> image       = $image;
-            $partner -> text        = $this -> request -> getPost('text');
-            $partner -> text2        = $this -> request -> getPost('text2');
+            $partner -> name        = $this -> request -> getPost('name');
             $partner -> setParamsForNew($this->user['id']);
 
             if ($partner -> save()) {
@@ -80,8 +79,7 @@ class PartnerController extends ControllerBase {
                 return $this -> response -> redirect("/admin/partner/edit/".$id);
             }
             $partner -> image       = $this -> request -> getPost('image');
-            $partner -> text        = $this -> request -> getPost('text');
-            $partner -> text2        = $this -> request -> getPost('text2');
+            $partner -> name        = $this -> request -> getPost('name');
             $partner -> setParamsForUpdate($this->user['id']);
 
             if ($partner -> save()) {

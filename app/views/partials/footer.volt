@@ -8,14 +8,14 @@
 
 	    <div class="row">
 
-	      <div class="col-md-3 col-sm-6">
+	      <div class="col-md-9 col-sm-9">
 
 	        <!-- - - - - - - - - - - - - - About us widget- - - - - - - - - - - - - - - - -->
 
 	        <section class="widget">
 
 	          <div class="abou-us-widget">
-                <img class="footer-logo" height="74px" src="<?php echo $about -> logo_footer?>" alt="Hang xach tay Conan">
+                <img class="footer-logo" height="74px" src="<?php echo $about -> logo_footer?>" alt="{{about.company_name_line2}}"/><br/><br/> <span class="company-name">{{about.company_name}}</span>
                 <p class="mt15 mb15"><strong>Địa chỉ:</strong> {{about.address}}</p>
                 <p class="mt15 mb15"><strong>Điện thoại:</strong> {{about.phone}}</p>
                 <p class="mt15 mb15"><strong>Email:</strong> {{about.email}}</p>
@@ -26,46 +26,9 @@
 
 	      </div><!--/ [col]-->
 
-	      <div class="col-md-3 col-sm-6">
-
-	        <!-- - - - - - - - - - - - - - Information widget - - - - - - - - - - - - - - - - -->
-
-	        <section class="widget">
-
-	          <h4>Hệ thống</h4>
-
-	          <ul class="list_of_links">
-	          	  <li class="current"><a href="/">Trang chủ</a></li>
-	              <li><a href="/gioi-thieu">Giới thiệu</a></li>
-	              <li><a href="/lien-he">Liên hệ</a></li>
-
-	          </ul>
-
-	        </section><!--/ .widget-->
-	        
-	        <!-- - - - - - - - - - - - - - End of information widget - - - - - - - - - - - - - - - - -->
 	      
-	      </div><!--/ [col]-->
 
-	      <div class="col-md-3 col-sm-6">
-
-	        <!-- - - - - - - - - - - - - - Extras widget - - - - - - - - - - - - - - - - -->
-
-	        <section class="widget">
-
-	          <h4>Danh mục</h4>
-
-	          <ul class="list_of_links">
-
-	          </ul>
-
-	        </section><!--/ .widget-->
-
-	        <!-- - - - - - - - - - - - - - End of extras widget - - - - - - - - - - - - - - - - -->
-
-	      </div><!--/ [col]-->
-
-	      <div class="col-md-3 col-sm-6">
+	      <div class="col-md-3 col-sm-3">
 
 	        <!-- - - - - - - - - - - - - - Blog widget - - - - - - - - - - - - - - - - -->
 

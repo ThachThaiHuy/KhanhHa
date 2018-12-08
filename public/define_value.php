@@ -1,5 +1,5 @@
 <?php
-define('DEFAULT_NAME', "KHANH HA CHEMICALS");
+define('DEFAULT_NAME', "HACO Trading");
 
 define('ITEM_PER_PAGE', 12);
 define('GET_NEW_PRODUCT', 36);

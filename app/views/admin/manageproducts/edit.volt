@@ -9,7 +9,7 @@
                             <input class="form-control" name="name" id="name" value="{{data.name}}"  maxlength="100">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="col-sm-2 control-label">Thương hiệu</label>
                         <div class="col-sm-4">
                             <select name="manufacture" class="form-control" id="manufacture">
@@ -19,7 +19,7 @@
                                 <?php } ?>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Danh mục</label>
                         <div class="col-sm-4">

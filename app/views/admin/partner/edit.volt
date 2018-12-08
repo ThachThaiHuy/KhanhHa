@@ -1,12 +1,11 @@
 <script language="javascript" src="/js/jquery.validate.min.js" type="text/javascript"></script>
 <script language="javascript" src="/themeadmin/ckeditor/ckeditor.js" type="text/javascript"></script>
-<script src="/themeadmin/scripts/sites/index.js"></script>
 <div class="content animate-panel">
     <div class="row">
         <div class="hpanel">
             
             <div class="panel-body">
-                <form class="form-horizontal" method="post" id="editPartner" action="/admin/partner/edit/{{data.id}}">
+                <form class="form-horizontal" method="post" id="editPartner" action="/admin/partner/edit/{{partner.id}}">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-6">
@@ -21,10 +20,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Image for Thumbnail (320 x 480)</label>
+                        <label class="col-sm-2 control-label">Image for Partner (320 x 480)</label>
                         <div class="col-sm-6">
-                            <input class="form-control" name="image_thumbnail" id="image_thumbnail" value="{{partner.image}}" type="hidden">
-                            <a class="btn btn-primary" href="javascript:void(0)" onclick="openKCFinder('image_thumbnail','image_thumbnail_show')"><i class="fa fa-folder-open-o"></i> Chọn thumbnail</a>
+                            <input class="form-control" name="image" id="image" value="{{partner.image}}" type="hidden">
+                            <a class="btn btn-primary" href="javascript:void(0)" onclick="openKCFinder('image','image_thumbnail_show')"><i class="fa fa-folder-open-o"></i> Chọn Hình Ảnh</a>
                         </div>
                     </div>
                     <div class="form-group">
@@ -75,6 +74,24 @@
             maxlength:100,
         });
     });
+    function openKCFinder(input, id) {
+        window.KCFinder = {
+            callBackMultiple: function(files) {
+                window.KCFinder = null;
+                $("#" + input).value = "";
+                if (files.length > 1) {
+                    showPopupMessage("notification", "Please choose one file");
+                    return;
+                }
+                for (var i = 0; i < files.length; i++) {
+                    $("#" + input).val(files[i]);
+                    $("#" + id).prop("src", files[i]);
+                }
+            }
+        };
+        window.open('/themeadmin/kcfinder/browse.php?type=images',  'kcfinder_multiple', 'status=0, toolbar=0, location=0, menubar=0, ' +
+        'directories=0, resizable=1, scrollbars=0, width=800, height=600');
+    }
 </script>
 
 <div id="myModal" class="modal fade hmodal-info" role="dialog">

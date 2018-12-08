@@ -77,9 +77,9 @@ function initRule() {
         required : true,
     });
 
-    $('input[id^="exampleCheckbox"]').rules("add", {
-        required : true,
-    });
+    // $('input[id^="exampleCheckbox"]').rules("add", {
+    //     required : true,
+    // });
 
     $('#category').rules("add", {
         required : true,

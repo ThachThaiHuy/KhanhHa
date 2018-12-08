@@ -1,7 +1,8 @@
 $(document).ready(function() {
-    validateForm($('#sites'));
-    initRule();
-    $("#btnSubmit").on("click", function(){
+    if($('#sites').length > 0){
+        validateForm($('#sites'));
+        initRule();
+        $("#btnSubmit").on("click", function(){
         CKEDITOR.instances.description.updateElement();
         CKEDITOR.instances.content.updateElement();
         if ($("#sites").valid()) {
@@ -9,6 +10,9 @@ $(document).ready(function() {
         }
         return false;
     });
+    }
+    
+    
 
     // var basePath = "/themeadmin/";
     // CKEDITOR.replace('description',{allowedContent:true,

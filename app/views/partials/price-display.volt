@@ -1,6 +1,6 @@
 <?php if ($sale_price > 0) {?>
-    <p class="old-price"><s><?php echo number_format($price)?> VNĐ</s></p>
-    <p class="product_price discount-price color-red"><strong><?php echo number_format($sale_price)?> VNĐ</strong></p>
+    <p class="old-price"><s><?php echo $t->_('money_text',array("money" => number_format($price))) ?></s></p>
+    <p class="product_price discount-price color-red"><strong><?php echo $t->_('money_text',array("money" => number_format($sale_price))) ?></strong></p>
 <?php } else {?>
     <p class="old-price">&nbsp;</p>
     <p class="product_price discount-price color-red">
@@ -8,10 +8,10 @@
       <?php 
         if($price > 0)
         {
-            echo number_format($price).' VNĐ';
+            echo $t->_('money_text',array("money" => number_format($price))) ;
         }
         else{
-          echo 'Liên Hệ';
+           echo $t->_("contact_page") ;
         }
         
       ?>

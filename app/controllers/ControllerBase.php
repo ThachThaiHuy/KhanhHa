@@ -10,13 +10,35 @@ use MyApp\Model\Products;
 class ControllerBase extends Controller
 {
     public $user;
+    public $tranlate;
+    protected function _getTranslation()
+    {
+
+        //Ask browser what is the best language
+        $language = $this->request->getBestLanguage();
+
+        //Check if we have a translation file for that lang
+        if (file_exists(APP_PATH."/app/messages/".$language.".php")) {
+           require APP_PATH."/app/messages/".$language.".php";
+        } else {
+           // fallback to some default
+           require APP_PATH."/app/messages/vi.php";
+        }
+
+        //Return a translation object
+        return new \Phalcon\Translate\Adapter\NativeArray(array(
+           "content" => $messages
+        ));
+
+    }
     public function onConstruct() {
 		
         $this -> view -> setLayout('home');
-
+        $this -> tranlate = $this->_getTranslation();
         $this -> view -> about = Abouts::findFirst(array("deleted = 0"));
         $this -> view -> titleForLayout = DEFAULT_NAME;
         $this -> view -> saleKeyWords = DEFAULT_NAME;
+        $this -> view -> t = $this ->tranlate ;
         $banner = new Banner();
         $ban = $banner ->findAll("id");
         $this -> view -> bannerList = $ban;

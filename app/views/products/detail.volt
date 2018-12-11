@@ -92,7 +92,7 @@
 
 			<div class="buttons_row">
 
-				<a href="/lien-he" class="button_blue middle_btn" data-id="{{product.id}}">Liên Hệ</a >
+				<a href="/lien-he" class="button_blue middle_btn" data-id="{{product.id}}"><?php echo $t->_('contact_page') ?></a >
 
 			</div>
 
@@ -111,7 +111,7 @@
 <!-- - - - - - - - - - - - - - Tabs - - - - - - - - - - - - - - - - -->
 
 <div class="section_offset">
-<h3 class="offset_title">Chi tiết sản phẩm</h3>
+<h3 class="offset_title"><?php echo $t->_('product_detail')  ?></h3>
 	<div class="tabs type_2">
 
 		<!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->
@@ -135,7 +135,7 @@
 
 </div><!--/ .section_offset -->
 
-<section class="section_offset">
+<!-- <section class="section_offset">
 <div class="row">
 	<div class="col-md-12">
 	    <div id="fb-root"></div>
@@ -149,7 +149,7 @@
 	    <div class="fb-comments" data-href="<?php echo 'http://www.muguetvn.com/san-pham/'.$product->slug; ?>" data-width="100%" data-numposts="10" data-order-by="reverse_time"></div>
 	</div>
 </div>
-</section>
+</section> -->
 
 <!-- - - - - - - - - - - - - - End of tabs - - - - - - - - - - - - - - - - -->
 
@@ -157,7 +157,7 @@
 
 <section class="section_offset">
 
-	<h3 class="offset_title">Sản Phẩm Liên Quan</h3>
+	<h3 class="offset_title"><?php echo $t->_('related_products') ?></h3>
 
 	<div class="owl_carousel related_products">
 

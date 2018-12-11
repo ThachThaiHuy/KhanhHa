@@ -19,7 +19,7 @@ class CategorydetailController extends ControllerBase
         }
 
         $categoryDetails = new CategoryDetails();
-        $categoryDetail = $categoryDetails -> findById($id);
+        $categoryDetail = $categoryDetails -> findBySlug($id);
         $products = new Products();
 
         if (empty($_GET['page'])) {
@@ -30,7 +30,7 @@ class CategorydetailController extends ControllerBase
 
         $paginator = new PaginatorModel (
             array(
-                "data"  => $products -> findByCatelogyDetailAndLimit($id, 0, $orderby),
+                "data"  => $products -> findByCatelogyDetailAndLimit($categoryDetail->id, 0, $orderby),
                 "limit" => ITEM_PER_PAGE,
                 "page"  => $currentPage
             )
@@ -44,6 +44,7 @@ class CategorydetailController extends ControllerBase
         $this -> view -> pageTitle = $categoryDetail -> name;
         $this -> view -> titleForLayout = $categoryDetail -> name." ".DEFAULT_NAME;
         $this -> view -> saleKeyWords = $categoryDetail -> name;
+        $this->view->pick('products/list');
     }
 }
 

@@ -9,7 +9,7 @@
 
               <section class="section_offset">
 
-                <h3>Danh mục Hoá Chất</h3>
+                <h3><?php echo $t->_('catalog_title') ?></h3>
 
                 <ul class="theme_menu cats">
                   {{ partial('partials/catalog')}}                
@@ -21,7 +21,7 @@
               <!-- - - - - - - - - - - - - - Bestseller Products - - - - - - - - - - - - - - - - -->
 
               <section class="section_offset">
-                <h3>Sản phẩm mới đăng</h3>
+                <h3><?php echo $t->_('news_title') ?></h3>
                 <ul class="products_list_widget products_list_sidebar">
                   <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
                   <?php 
@@ -40,7 +40,7 @@
 
                 <footer class="bottom_box">
 
-                  <a href="/san-pham-moi" class="button_grey middle_btn">View All</a>
+                  <a href="/san-pham-moi" class="button_grey middle_btn"><?php echo $t->_('view_all') ?></a>
 
                 </footer>
 

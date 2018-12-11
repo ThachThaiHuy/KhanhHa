@@ -24,5 +24,5 @@
 ============================================ -->
 <script src="/js/theme.plugins.js"></script>
 <script src="/js/theme.core.js"></script>
-<script src="/js/cart/cart.js"></script>
+<!--<script src="/js/cart/cart.js"></script>-->
 <script src="/js/custom.js"></script>

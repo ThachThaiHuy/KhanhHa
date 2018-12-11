@@ -4,8 +4,8 @@
  *
  * @var \Phalcon\Config $config
  */
-
-use Phalcon\Di\FactoryDefault;
+use Phalcon\Di;
+use Phalcon\Di\FactoryDefault as FactoryDefault;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
@@ -19,7 +19,6 @@ use MyApp\Auth;
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
  */
-
 $di = new FactoryDefault();
 
 
@@ -123,21 +122,21 @@ $di->set(
                 switch ($exception->getCode()) {
                     case PhDispatcher::EXCEPTION_HANDLER_NOT_FOUND:
                     case PhDispatcher::EXCEPTION_ACTION_NOT_FOUND:
-                        $dispatcher->forward(
-                            array(
+                        $dispatcher->forward(array(
                                 'controller' => 'error',
                                 'action'     => 'index',
                             )
                         );
                         return false;
+                        break;
                     default:
-                        $dispatcher->forward(
-                            array(
+                        $dispatcher->forward(array(
                                 'controller' => 'error',
                                 'action'     => 'index',
                             )
                         );
                         return false;
+                        break;
                 }
             }
         );

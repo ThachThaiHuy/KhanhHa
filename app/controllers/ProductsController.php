@@ -2,22 +2,22 @@
 namespace MyApp\Controllers;
 use Phalcon\Mvc\View;
 use MyApp\Model\Products;
+
 class ProductsController extends ControllerBase
 {
     public function indexAction() {
     }
 
-    public function detailAction($id = 1) {
+    public function detailAction($slug = '') {
 
         $products = new Products();
-        $product = $products -> findById($id);
-
+        $product = $products -> findBySlug($slug);
         if ($product == false) {
-            return $this -> response -> redirect("/");
+            throw new \Exception();
         }
         $this -> view -> product = $product;
 
-        $relateProduct = $products -> findRelateCategory($id, $product -> category_detail_ids, 9);
+        $relateProduct = $products -> findRelateCategory($product->id, $product -> category_detail_ids, 9);
         $this -> view -> relateProduct = $relateProduct;
         $this -> view -> titleForLayout = $product -> name." - ".DEFAULT_NAME;
         $this -> view -> saleKeyWords = $product -> name." - ".DEFAULT_NAME;

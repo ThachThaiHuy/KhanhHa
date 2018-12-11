@@ -21,7 +21,6 @@ $loader->registerNamespaces(array(
 	'MyApp\Controllers' => __DIR__ . '/../controllers/',
 	'MyApp\Model' => __DIR__ . '/../models/',
 	'MyApp\Forms' => __DIR__ . '/../forms/',
-	'MyApp' => __DIR__ . '/../library/',
-	
+	'MyApp' => __DIR__ . '/../library/',	
 ));
 $loader->register();

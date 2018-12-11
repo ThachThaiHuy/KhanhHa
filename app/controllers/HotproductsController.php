@@ -41,6 +41,7 @@ class HotproductsController extends ControllerBase
         $this -> view -> titleForLayout = "Sản phẩm nổi bật - ".DEFAULT_NAME;
         $this -> view -> saleKeyWords = "Sản phẩm nổi bật - ".DEFAULT_NAME;
         $this -> view -> pageTitle = "Sản phẩm nổi bật";
+        return $this->view->pick('products/list');
     }
 }
 

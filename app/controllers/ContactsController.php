@@ -8,14 +8,16 @@ class ContactsController extends ControllerBase
 {
 
     public function indexAction() {
+        $text = $this -> tranlate->_('contact_page');
         $this -> view -> setLayout('home_no_leftsidebar');
-        $this -> view -> titleForLayout = "Liên hệ - ".DEFAULT_NAME;
-        $this -> view -> saleKeyWords = "Liên hệ - ".DEFAULT_NAME;
+        $this -> view -> titleForLayout = $text." - ".DEFAULT_NAME;
+        $this -> view -> saleKeyWords = $text." - ".DEFAULT_NAME;
     }
     public function addAction() {
-        $this -> view -> titleForLayout = "Liên hệ";
-        $this -> view -> title     =  "Liên hệ";
-        $this -> view -> pageHeader = "Liên hệ";
+        $text = $this -> tranlate->_('contact_page');
+        $this -> view -> titleForLayout = $text;
+        $this -> view -> title     =  $text;
+        $this -> view -> pageHeader = $text;
         $this->flashSession->clear();
         if ($this->request->isPost()) {
             $contacts = new Contacts();

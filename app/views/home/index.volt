@@ -37,7 +37,7 @@
               </div>
               <!-- - - - - - - - - - - - - - View all - - - - - - - - - - - - - - - - -->
               <footer class="bottom_box">
-                <a href="/danh-muc/{{category.slug}}/{{categoryDetail.slug}}" class="button_grey middle_btn">Xem tất cả sản phẩm</a>
+                <a href="/danh-muc/{{category.slug}}/{{categoryDetail.slug}}" class="button_grey middle_btn"><?php echo $t->_('view_all') ?></a>
               </footer>
               <!-- - - - - - - - - - - - - - End of view all - - - - - - - - - - - - - - - - -->
             </div>
@@ -53,7 +53,7 @@
               </div>
               <!-- - - - - - - - - - - - - - View all - - - - - - - - - - - - - - - - -->
               <footer class="bottom_box">
-                <a href="/danh-muc/{{category.slug}}" class="button_grey middle_btn">Xem tất cả sản phẩm</a>
+                <a href="/danh-muc/{{category.slug}}" class="button_grey middle_btn"><?php echo $t->_('view_all') ?></a>
               </footer>
               <!-- - - - - - - - - - - - - - End of view all - - - - - - - - - - - - - - - - -->
           <?php } ?>

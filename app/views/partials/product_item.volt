@@ -5,7 +5,7 @@
     <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
     <div class="actions_wrap">
       <div class="centered_buttons">
-        <a href="/san-pham/{{item.slug}}" class="button_dark_grey middle_btn quick_view">Xem chi tiết</a>
+        <a href="/san-pham/{{item.slug}}" class="button_dark_grey middle_btn quick_view"><?php echo $t->_("detail_text") ?></a>
       </div><!--/ .centered_buttons -->
     </div><!--/ .actions_wrap-->
     <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
@@ -13,9 +13,9 @@
   <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
   <!-- - - - - - - - - - - - - - Label - - - - - - - - - - - - - - - - -->
   <?php if ($item -> status == 1) {?>
-  <div class="label_new">Mới</div>
+  <div class="label_new"><?php echo $t->_("new_text") ?></div>
   <?php } elseif ($item -> status == 2) {?>
-  <div class="label_hot">Hot</div>
+  <div class="label_hot"><?php echo $t->_("hot_text") ?></div>
   <?php }?>
   <!-- - - - - - - - - - - - - - End label - - - - - - - - - - - - - - - - -->
   <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
@@ -29,7 +29,7 @@
   <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
   <!-- - - - - - - - - - - - - - Actions - - - - - - - - - - - - - - - - -->
   <div class="buttons_row">
-    <a href="/lien-he" class="button_green" data-id="{{item.id}}">Liên Hệ</a>
+    <a href="/lien-he" class="button_green" data-id="{{item.id}}"><?php echo $t->_("contact_page") ?></a>
     
   </div>
   <!-- - - - - - - - - - - - - - End of actions - - - - - - - - - - - - - - - - -->

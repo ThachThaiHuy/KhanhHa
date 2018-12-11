@@ -7,7 +7,9 @@ class ModelBase extends Model {
     public function findById($id) {
         return self::findFirst(array("id = :id: AND deleted = 0", "bind" => array("id" => $id)));
     }
-
+    public function findBySlug($slug) {
+        return self::findFirst(array("slug = :slug: AND deleted = 0", "bind" => array("slug" => $slug)));
+    }
     public function findAll($order='updated_at DESC') {
         return self::find(array("deleted = 0", "order" => $order));
     }

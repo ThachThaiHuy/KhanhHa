@@ -46,10 +46,13 @@ class SearchController extends ControllerBase
         $this -> view -> currentPage = $currentPage;
 
         //$this -> view ->catId = $catId;
-        $this -> view -> pageTitle = "Tìm kiếm '".(empty($strSearch) ? "tất cả sản phẩm" : $strSearch)."'";
+        $text = $this -> tranlate->_('search_text');
+        $all_product = $this -> tranlate->_('all_product');
+        $this -> view -> pageTitle = $text." '".(empty($strSearch) ? $all_product : $strSearch)."'";
         $this -> view -> strSearch = $strSearch;
-        $this -> view -> titleForLayout = "Tìm kiếm ".$strSearch." - ".DEFAULT_NAME;
-        $this -> view -> saleKeyWords = "Tìm kiếm ".$strSearch." - ".DEFAULT_NAME;
+        $this -> view -> titleForLayout =  $text." ".$strSearch." - ".DEFAULT_NAME;
+        $this -> view -> saleKeyWords =  $text." ".$strSearch." - ".DEFAULT_NAME;
+        return $this->view->pick('products/list');
     }
 }
 

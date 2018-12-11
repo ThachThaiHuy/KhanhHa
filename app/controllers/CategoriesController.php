@@ -7,7 +7,7 @@ use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
 class CategoriesController extends ControllerBase
 {
-    public function indexAction($id = 0) {
+    public function indexAction($id = '') {
         $orderby = 'if(sale_price=0,price,sale_price) asc';
         $sortby = $this -> session -> get('sortby');
         if ($sortby == 1) {
@@ -19,7 +19,7 @@ class CategoriesController extends ControllerBase
         }
 
         $productCategories = new Categories();
-        $category = $productCategories -> findById($id);
+        $category = $productCategories -> findBySlug($id);
         $products = new Products();
 
         if (empty($_GET['page'])) {
@@ -30,7 +30,7 @@ class CategoriesController extends ControllerBase
 
         $paginator = new PaginatorModel (
             array(
-                "data"  => $products -> findByCategory($id, 0, $orderby),
+                "data"  => $products -> findByCategory($category->id, 0, $orderby),
                 "limit" => ITEM_PER_PAGE,
                 "page"  => $currentPage
             )
@@ -44,6 +44,7 @@ class CategoriesController extends ControllerBase
         $this -> view -> pageTitle = $category -> name;
         $this -> view -> titleForLayout = $category -> name." - ". DEFAULT_NAME;
         $this -> view -> saleKeyWords = $category -> name;
+        return $this->view->pick('products/list');
     }
 
     public function allAction() {
@@ -77,10 +78,11 @@ class CategoriesController extends ControllerBase
         $page = $paginator -> getPaginate();
         $this -> view -> data = $page;
         $this -> view -> currentPage = $currentPage;
-
-        $this -> view -> pageTitle = "Tất cả sản phẩm";
-        $this -> view -> titleForLayout = "Tất cả sản phẩm - ".DEFAULT_NAME;
-        $this -> view -> saleKeyWords = "Tất cả sản phẩm";
+        $text = $this -> tranlate->_('all_product');
+        $this -> view -> pageTitle = $text;
+        $this -> view -> titleForLayout = $text." - ".DEFAULT_NAME;
+        $this -> view -> saleKeyWords = $text;
+        return $this->view->pick('products/list');
     }
 }
 

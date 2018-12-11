@@ -54,83 +54,65 @@ $router->add('/admin/logout', array(
 
 
 // USER/...
-$router->add('/user/:controller/:action/:params', array(
-    'namespace' => 'MyApp\Controllers\User',
-    'controller' => 1,
-    'action' => 2,
-    'params' => 3,
-));
+// $router->add('/user/:controller/:action/:params', array(
+//     'namespace' => 'MyApp\Controllers\User',
+//     'controller' => 1,
+//     'action' => 2,
+//     'params' => 3,
+// ));
 
-$router->add('/user/:controller', array(
-    'namespace' => 'MyApp\Controllers\User',
-    'controller' => 1,
+// $router->add('/user/:controller', array(
+//     'namespace' => 'MyApp\Controllers\User',
+//     'controller' => 1,
+//     'action' => 'index'
+// ));
+
+// $router->add('/logout', array(
+//     'namespace' => 'MyApp\Controllers',
+//     'controller' => 'login',
+//     'action' => 'logout'
+// ));
+// end USER/...
+
+// $manufactures = new MyApp\Model\Manufactures();
+// $manus = $manufactures -> findAll();
+// foreach ($manus as $item) {
+//     $router->add('/thuong-hieu/'. $item -> slug, array(
+//         'namespace' => 'MyApp\Controllers',
+//         'controller' => 'manufactures',
+//         'action' => 'index',
+//         'params' => $item -> id
+//     ));
+// }
+
+// $router->add('/thuong-hieu/tat-ca', array(
+//     'namespace' => 'MyApp\Controllers',
+//     'controller' => 'manufactures',
+//     'action' => 'all'
+// ));
+
+$router->add('/san-pham/{slug}', array(
+    'namespace' => 'MyApp\Controllers',
+    'controller' => 'products',
+    'action' => 'detail'
+));
+$router->add('/danh-muc/{slug}', array(
+    'namespace' => 'MyApp\Controllers',
+    'controller' => 'categories',
     'action' => 'index'
 ));
 
-$router->add('/logout', array(
+$router->add('/danh-muc/{slug}/{slug2}', array(
     'namespace' => 'MyApp\Controllers',
-    'controller' => 'login',
-    'action' => 'logout'
+    'controller' => 'categorydetail',
+    'action' => 'index'
 ));
-// end USER/...
-
-$manufactures = new MyApp\Model\Manufactures();
-$manus = $manufactures -> findAll();
-foreach ($manus as $item) {
-    $router->add('/thuong-hieu/'. $item -> slug, array(
-        'namespace' => 'MyApp\Controllers',
-        'controller' => 'manufactures',
-        'action' => 'index',
-        'params' => $item -> id
-    ));
-}
-
-$router->add('/thuong-hieu/tat-ca', array(
-    'namespace' => 'MyApp\Controllers',
-    'controller' => 'manufactures',
-    'action' => 'all'
-));
-
-$categories = new MyApp\Model\Categories();
-$cates = $categories -> findAll();
-foreach ($cates as $item) {
-    $router->add('/danh-muc/'. $item -> slug, array(
-        'namespace' => 'MyApp\Controllers',
-        'controller' => 'categories',
-        'action' => 'index',
-        'params' => $item -> id
-    ));
-}
-
-$categoryDetails = new MyApp\Model\CategoryDetails();
-$catesDetail = $categoryDetails -> findAll();
-foreach ($catesDetail as $item) {
-    $router->add('/danh-muc/'. $item -> category -> slug."/". $item -> slug, array(
-        'namespace' => 'MyApp\Controllers',
-        'controller' => 'categorydetail',
-        'action' => 'index',
-        'params' => $item -> id
-    ));
-}
 
 $router->add('/danh-muc/tat-ca', array(
     'namespace' => 'MyApp\Controllers',
     'controller' => 'categories',
     'action' => 'all'
 ));
-
-use MyApp\Model\Products;
-$product = new Products();
-$products = $product -> findAll();
-
-foreach ($products as $item) {
-    $router->add('/san-pham/'.$item -> slug, array(
-    'namespace' => 'MyApp\Controllers',
-    'controller' => 'products',
-    'action' => 'detail',
-    'params' => $item -> id
-    ));
-}
 
 $router->add('/lien-he', array(
     'namespace' => 'MyApp\Controllers',
@@ -143,11 +125,11 @@ $router->add('/lien-he/add', array(
     'action' => 'add'
 ));
 
-$router->add('/gio-hang', array(
-    'namespace' => 'MyApp\Controllers',
-    'controller' => 'shoppingcart',
-    'action' => 'index'
-));
+// $router->add('/gio-hang', array(
+//     'namespace' => 'MyApp\Controllers',
+//     'controller' => 'shoppingcart',
+//     'action' => 'index'
+// ));
 
 $router->add('/san-pham-moi', array(
     'namespace' => 'MyApp\Controllers',
@@ -155,17 +137,17 @@ $router->add('/san-pham-moi', array(
     'action' => 'index'
 ));
 
-$router->add('/san-pham-giam-gia', array(
-    'namespace' => 'MyApp\Controllers',
-    'controller' => 'saleproducts',
-    'action' => 'index'
-));
+// $router->add('/san-pham-giam-gia', array(
+//     'namespace' => 'MyApp\Controllers',
+//     'controller' => 'saleproducts',
+//     'action' => 'index'
+// ));
 
-$router->add('/san-pham-noi-bat', array(
-    'namespace' => 'MyApp\Controllers',
-    'controller' => 'hotproducts',
-    'action' => 'index'
-));
+// $router->add('/san-pham-noi-bat', array(
+//     'namespace' => 'MyApp\Controllers',
+//     'controller' => 'hotproducts',
+//     'action' => 'index'
+// ));
 
 $router->add('/tim-kiem-san-pham', array(
     'namespace' => 'MyApp\Controllers',
@@ -179,17 +161,17 @@ $router->add('/gioi-thieu', array(
     'action' => 'index'
 ));
 
-$router->add('/thong-bao-gio-hang', array(
-    'namespace' => 'MyApp\Controllers',
-    'controller' => 'shoppingcart',
-    'action' => 'checkout'
-));
+// $router->add('/thong-bao-gio-hang', array(
+//     'namespace' => 'MyApp\Controllers',
+//     'controller' => 'shoppingcart',
+//     'action' => 'checkout'
+// ));
 
-$router->add('/thong-bao-gio-hang', array(
-    'namespace' => 'MyApp\Controllers',
-    'controller' => 'shoppingcart',
-    'action' => 'checkout'
-));
+// $router->add('/thong-bao-gio-hang', array(
+//     'namespace' => 'MyApp\Controllers',
+//     'controller' => 'shoppingcart',
+//     'action' => 'checkout'
+// ));
 
 $router->add('/doi-tac', array(
     'namespace' => 'MyApp\Controllers',

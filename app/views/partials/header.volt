@@ -33,7 +33,7 @@
             <!-- - - - - - - - - - - - - - Search form - - - - - - - - - - - - - - - - -->
             
             <form class="clearfix search" action='/tim-kiem-san-pham' id='search' method='get'>
-              <input type="text" name="strSearch" tabindex="1" placeholder="Tìm kiếm..." class="alignleft" value="<?php echo isset($strSearch) ? htmlspecialchars_decode($strSearch) : '' ?>">
+              <input type="text" name="strSearch" tabindex="1" placeholder="<?php echo $t->_("search_holder") ?>" class="alignleft" value="<?php echo isset($strSearch) ? htmlspecialchars_decode($strSearch) : '' ?>">
               <button class="button_green def_icon_btn alignleft"></button>
 
             </form><!--/ #search-->
@@ -41,7 +41,7 @@
             <!-- - - - - - - - - - - - - - End search form - - - - - - - - - - - - - - - - -->
            <div class="call_us pull-right">
 
-              <span>Host Line:</span> <b>{{about.phone}}</b>
+              <span><?php echo $t->_("host_line") ?></span> <b>{{about.phone}}</b>
 
             </div><!--/ .call_us-->
           </div><!--/ [col]-->
@@ -87,19 +87,19 @@
 
                 <ul>
 
-                  <li class="<?php echo $controllerName == 'home' && $actionName == 'index' ? 'current' : '';?>"><a href="/">Trang chủ</a></li>
-                  <li class="<?php echo $controllerName == 'introduce' && $actionName == 'index' ? 'current' : '';?>"><a href="/gioi-thieu">Giới thiệu</a></li>
+                  <li class="<?php echo $controllerName == 'home' && $actionName == 'index' ? 'current' : '';?>"><a href="/"><?php echo $t->_("home_page") ?></a></li>
+                  <li class="<?php echo $controllerName == 'introduce' && $actionName == 'index' ? 'current' : '';?>"><a href="/gioi-thieu"><?php echo $t->_("introduct_page") ?></a></li>
                   <li class="has_submenu <?php echo ($controllerName == 'newproducts' || $controllerName == 'saleproducts' || $controllerName == 'hotproducts'||$controllerName == 'categories') && $actionName == 'index' ? 'current' : '';?>">
-                      <a href="#">Sản phẩm</a>
+                      <a href="#"><?php echo $t->_("product_page") ?></a>
                       <ul class="theme_menu submenu catalog-menu">
                         {{ partial('partials/catalog')}}
                     </ul>
                   </li>
                   <li class="<?php echo $controllerName == 'partner' && ($actionName == 'index' || $actionName == 'all') ? 'current' : '';?>">
-                      <a href="/doi-tac">Đối Tác</a>
+                      <a href="/doi-tac"><?php echo $t->_("partner_page") ?></a>
                   </li>         
                   <!-- <li><a href="#">Bài viết</a></li> -->
-                  <li class="<?php echo $controllerName == 'contacts' && $actionName == 'index' ? 'current' : '';?>"><a href="/lien-he">Liên hệ</a></li>
+                  <li class="<?php echo $controllerName == 'contacts' && $actionName == 'index' ? 'current' : '';?>"><a href="/lien-he"><?php echo $t->_("contact_page") ?></a></li>
                 </ul>
 
               </nav><!--/ .main_navigation-->

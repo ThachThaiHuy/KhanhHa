@@ -16,9 +16,9 @@
 
 	          <div class="abou-us-widget">
                 <img class="footer-logo" height="74px" src="<?php echo $about -> logo_footer?>" alt="{{about.company_name_line2}}"/><br/><br/> <span class="company-name">{{about.company_name}}</span>
-                <p class="mt15 mb15"><strong>Địa chỉ:</strong> {{about.address}}</p>
-                <p class="mt15 mb15"><strong>Điện thoại:</strong> {{about.phone}}</p>
-                <p class="mt15 mb15"><strong>Email:</strong> {{about.email}}</p>
+                <p class="mt15 mb15"><strong><?php echo $t->_('adress_text') ?>:</strong> {{about.address}}</p>
+                <p class="mt15 mb15"><strong><?php echo $t->_('phone_text') ?>:</strong> {{about.phone}}</p>
+                <p class="mt15 mb15"><strong><?php echo $t->_('email_text') ?>:</strong> {{about.email}}</p>
             </div>
 	        </section>
 	        

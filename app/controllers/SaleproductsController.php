@@ -40,6 +40,7 @@ class SaleproductsController extends ControllerBase
         $this -> view -> titleForLayout = "Sản phẩm giảm giá - ".DEFAULT_NAME;
         $this -> view -> saleKeyWords = "Sản phẩm giảm giá - ".DEFAULT_NAME;
         $this -> view -> pageTitle = "Sản phẩm giảm giá";
+        return $this->view->pick('products/list');
     }
 }
 

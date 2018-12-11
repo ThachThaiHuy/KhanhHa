@@ -41,6 +41,7 @@ class NewproductsController extends ControllerBase
         $this -> view -> titleForLayout = "Sản phẩm mới - ".DEFAULT_NAME;
         $this -> view -> saleKeyWords = "Sản phẩm mới - ".DEFAULT_NAME;
         $this -> view -> pageTitle = "Sản phẩm mới";
+        return $this->view->pick('products/list');
     }
 
     public function ajaxChangeViewAction()

@@ -92,7 +92,10 @@
 
 			<div class="buttons_row">
 
-				<a href="/lien-he" class="button_blue middle_btn" data-id="{{product.id}}"><?php echo $t->_('contact_page') ?></a >
+				<form method="post" action="/lien-he">
+						    <input type="hidden" name="id" value="{{product.id}}" />
+						    <button class="btn button_green " type="submit" ><?php echo $t->_('contact_page') ?> </button>
+						  </form>
 
 			</div>
 

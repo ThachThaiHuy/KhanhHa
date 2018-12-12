@@ -29,7 +29,10 @@
 
 				</div>
 				<div class="buttons_row text-center mt15">
-                    <a href="/lien-he" class="button_green float-none" data-id="<?php echo $item -> id?>"><?php echo $t->_("contact_page") ?></a>
+                    <form method="post" action="/lien-he">
+					    <input type="hidden" name="id" value="{{item.id}}" />
+					    <button class="btn button_green " type="submit" ><?php echo $t->_('contact_page') ?> </button>
+					  </form>
                 </div>
 				<!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
 
@@ -48,7 +51,10 @@
 				<div class="actions text-center">
 					{{ partial('partials/price-display',['sale_price':item.sale_price,'price':item.price])}}
 					<ul class="buttons_col">
-						<li><a href="/lien-he" class="button_green" data-id="<?php echo $item -> id?>"><?php echo $t->_("contact_page") ?></a></li>
+						<li><form method="post" action="/lien-he">
+						    <input type="hidden" name="id" value="{{item.id}}" />
+						    <button class="btn button_green " type="submit" ><?php echo $t->_('contact_page') ?> </button>
+						  </form></li>
 					</ul>
 				</div>
 				<!-- - - - - - - - - - - - - - Product price & actions (only for list view) - - - - - - - - - - - - - - - - -->

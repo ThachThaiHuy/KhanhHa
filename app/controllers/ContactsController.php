@@ -2,16 +2,24 @@
 namespace MyApp\Controllers;
 use Phalcon\Mvc\View;
 use MyApp\Model\Contacts;
-use MyApp\Model\Abouts;
+use MyApp\Model\Products;
 use MyApp\MyEmail;
 class ContactsController extends ControllerBase
 {
 
     public function indexAction() {
+        $title_send = "";
         $text = $this -> tranlate->_('contact_page');
         $this -> view -> setLayout('home_no_leftsidebar');
         $this -> view -> titleForLayout = $text." - ".DEFAULT_NAME;
         $this -> view -> saleKeyWords = $text." - ".DEFAULT_NAME;
+        if ($this->request->isPost()) {
+            $id = htmlspecialchars($this->request ->getPost('id'),ENT_QUOTES);
+            $products = new Products();
+            $product = $products -> findById($id);
+            $title_send = $this -> tranlate->_('contact_for', ['name' => $product -> name]);
+        }
+        $this -> view -> title_send = $title_send;
     }
     public function addAction() {
         $text = $this -> tranlate->_('contact_page');
@@ -29,16 +37,16 @@ class ContactsController extends ControllerBase
             $contacts -> message = htmlspecialchars($this->request ->getPost('content'),ENT_QUOTES);
             $contacts -> setParamsForNew(0);
             if ($contacts -> save()) {
-                $about = Abouts::findFirst(array("deleted = 0"));
+                $about = $this -> view -> about;
                 $mail = new MyEmail();
                 $mail -> sendContactPage($about -> email,DEFAULT_NAME ,$contacts -> title , $contacts);
                 $this->flashSession->success("Thêm thành công!!");
                 
             } 
             else{
-                $this->flashSession->success("Thêm thành công!!");
+                $this->flashSession->success("Thêm Thất Bại!!");
             }
-            return $this->response->redirect("/lien-he/");
+            return $this->response->redirect("/");
 
         }
     }

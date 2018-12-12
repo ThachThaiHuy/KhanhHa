@@ -9,6 +9,7 @@ class ProductsController extends ControllerBase
     }
 
     public function detailAction($slug = '') {
+        $slug = htmlspecialchars($slug, ENT_QUOTES);
 
         $products = new Products();
         $product = $products -> findBySlug($slug);

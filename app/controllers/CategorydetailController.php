@@ -7,7 +7,8 @@ use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
 class CategorydetailController extends ControllerBase
 {
-    public function indexAction($id = 0) {
+    public function indexAction($id = '',$slug='') {
+        $slug = htmlspecialchars($slug, ENT_QUOTES);
         $orderby = 'if(sale_price=0,price,sale_price) asc';
         $sortby = $this -> session -> get('sortby');
         if ($sortby == 1) {
@@ -17,9 +18,8 @@ class CategorydetailController extends ControllerBase
         } else {
             $orderby = 'updated_at desc';
         }
-
         $categoryDetails = new CategoryDetails();
-        $categoryDetail = $categoryDetails -> findBySlug($id);
+        $categoryDetail = $categoryDetails -> findBySlug($slug);
         $products = new Products();
 
         if (empty($_GET['page'])) {
@@ -27,7 +27,7 @@ class CategorydetailController extends ControllerBase
         } else {
                $currentPage  = (int) $_GET['page'];
         }
-
+        
         $paginator = new PaginatorModel (
             array(
                 "data"  => $products -> findByCatelogyDetailAndLimit($categoryDetail->id, 0, $orderby),

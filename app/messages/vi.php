@@ -36,5 +36,6 @@ $messages = array(
     "send_text" => "Gửi",
     "company_info"=>"Thông tin chung",
     'introduct_us' => "Giới thiệu về chúng tôi",
+    "contact_for" => "Liên Hê Về Sản Phẩm %name%",
     
 );

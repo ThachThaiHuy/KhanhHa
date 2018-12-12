@@ -29,7 +29,11 @@
   <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
   <!-- - - - - - - - - - - - - - Actions - - - - - - - - - - - - - - - - -->
   <div class="buttons_row">
-    <a href="/lien-he" class="button_green" data-id="{{item.id}}"><?php echo $t->_("contact_page") ?></a>
+  <form method="post" action="/lien-he">
+    <input type="hidden" name="id" value="{{item.id}}" />
+    <button class="btn button_green " type="submit" ><?php echo $t->_('contact_page') ?> </button>
+  </form>
+    
     
   </div>
   <!-- - - - - - - - - - - - - - End of actions - - - - - - - - - - - - - - - - -->

@@ -136,30 +136,42 @@
       </div><!--/ .row-->
 <div class="section_offset" >
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
+  <div id="bootstrap-touch-slider" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="10000" >
 
     <!-- Indicators -->
       <ol class="carousel-indicators">
       <?php
         $iBanner = 0;
         foreach ($bannerList as $item) {?>
-        <li data-target="#myCarousel" data-slide-to="<?php echo $iBanner;?>" class="<?php echo $iBanner == 0 ? 'active' : ''?>"></li>
+        <li data-target="#bootstrap-touch-slider" data-slide-to="<?php echo $iBanner;?>" class="<?php echo $iBanner == 0 ? 'active' : ''?>"></li>
         <?php $iBanner ++;}?>
       </ol>
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <div class="carousel-inner" role="listbox">
         <?php
         $iBanner2 = 0;
         foreach ($bannerList as $item) {?>
         <div class="item <?php echo $iBanner2 == 0 ? 'active' : ''?>" >
-            <img class="" src="{{item.image}}" alt="{{item.text}}" style="max-height: 350px; min-height: 150px; margin-left: auto;margin-right: auto;">
+          <img src="{{item.image}}" alt="{{item.text}}" class="slide-image" data-animation="animated {{item.animtion}}"/>
+                    <div class="bs-slider-overlay"></div>
+                                <div class="container">
+                        <div class="row">
+                            <!-- Slide Text Layer -->
+                            <div class="slide-text {{item.position_text}}">
+                                <div data-animation="animated {{item.animtion_text_1}}">{{item.text}}</div>
+                                <div data-animation="animated {{item.animtion_text_2}}">{{item.text2}}</div>
+                            </div>
+                        </div>
+                    </div>
         </div>
         <?php $iBanner2 ++;}?>
     </div>
 
+
       <!-- Controls -->
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+      <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+      <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
   </div>
         
         <!-- - - - - - - - - - - - - - End of Revolution slider - - - - - - - - - - - - - - - - -->

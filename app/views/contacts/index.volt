@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="title"><?php echo $t->_('send_title') ?><span class="color-red">*</span></label>
                         <div class="col-sm-8 ">
-                            <input class="form-control" name="title" id="title"  maxlength="200" required oninput="check(this,200,'<?php echo $t->_('send_title') ?>')">
+                            <input class="form-control" name="title" id="title"  maxlength="200" required oninput="check(this,200,'<?php echo $t->_('send_title') ?>')" value="{{title_send}}">
                         </div>
                     </div>
                     <div class="form-group">

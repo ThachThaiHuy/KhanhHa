@@ -8,6 +8,7 @@ use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 class CategoriesController extends ControllerBase
 {
     public function indexAction($id = '') {
+        $id = htmlspecialchars($id, ENT_QUOTES);
         $orderby = 'if(sale_price=0,price,sale_price) asc';
         $sortby = $this -> session -> get('sortby');
         if ($sortby == 1) {

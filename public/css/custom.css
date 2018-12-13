@@ -349,6 +349,7 @@ input:valid ,textarea:valid{
 }
 
 .slide-text {
+    color: #ffffff !important;
     left: 0;
     top: 25%;
     right: 0;
@@ -360,13 +361,11 @@ input:valid ,textarea:valid{
     
 }
 
-.slide-text > h1 {
+.slide-text > h3 {
     
     padding: 0;
-    color: #ffffff;
-    font-size: 70px;
+    color: #ffffff !important;
     font-style: normal;
-    line-height: 84px;
     margin-bottom: 30px;
     letter-spacing: 1px;
     display: inline-block;
@@ -375,7 +374,7 @@ input:valid ,textarea:valid{
 }
 .slide-text > p {
     padding: 0;
-    color: #ffffff;
+    color: #ffffff !important;
     font-size: 20px;
     line-height: 24px;
     font-weight: 300;

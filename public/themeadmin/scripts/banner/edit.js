@@ -2,6 +2,15 @@ $(document).ready(function() {
         $("#image1").on("click", function() {
             openKCFinder(this);
         });
+
+    var basePath = "/admin/";
+    CKEDITOR.replace('descrtiption',{allowedContent:true,
+    filebrowserBrowseUrl : basePath + 'kcfinder/browse.php?type=files',
+    filebrowserImageBrowseUrl : basePath + 'kcfinder/browse.php?type=images',
+    filebrowserFlashBrowseUrl : basePath + 'kcfinder/browse.php?type=flash',
+    filebrowserUploadUrl : basePath + 'kcfinder/upload.php?type=files',
+    filebrowserImageUploadUrl : basePath + 'kcfinder/upload.php?type=images',
+    filebrowserFlashUploadUrl : basePath + 'kcfinder/upload.php?type=flash'});
 });
 function openKCFinder(textarea) {
     window.KCFinder = {

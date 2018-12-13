@@ -8,23 +8,65 @@
                 <?php } ?>
                 <form class="form-horizontal" role="form" action="/admin/managebanner/edit/{{banner.id}}" method="post" id="addPosts" enctype="multipart/form-data">
 
-                    <!-- <div class="form-group">
-                        <label class="col-sm-2 control-label">Text</label>
-                        <div class="col-sm-4">
-                            <input class="form-control" name="text" value="<?php echo $banner -> text?>" maxlength="100">
+                   <div class="form-group">
+                        <label class="col-sm-2 control-label">Tiêu Đề</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" name="title" id="title" value={{banner.text}}/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Text2</label>
-                        <div class="col-sm-4">
-                            <input class="form-control" name="text2" value="<?php echo $banner -> text2?>" maxlength="100">
+                        <label class="col-sm-2 control-label">Animation</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="animation_title">
+                                <?php foreach($animation as $item){ ?>
+                                    <option value="{{item}}" <?php echo $banner->animtion_text_1 == $item ? 'selected' : ''?> >{{item}} </option>
+                                <?php } ?>
+                                
+                            </select>
                         </div>
-                    </div> -->
-
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Mô tả</label>
+                        <div class="col-sm-10">
+                            <textarea name="descrtiption" id="descrtiption" >{{banner.text2}}</textarea>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Animation</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="animation_desctiption">
+                                <?php foreach($animation as $item){ ?>
+                                    <option value="{{item}}" <?php echo $banner->animtion_text_2 == $item ? 'selected' : ''?> >{{item}} </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Vị Trí</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="text_position">
+                                <?php 
+                                    for ($x = 0; $x < count($postion); $x++) {?>
+                                        <option value="{{postion_value[x]}}" <?php echo $banner->position_text == $postion_value[$x] ? 'selected' : ''?> >{{postion[x]}} </option>
+                                    <?php } 
+                                    ?>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Image</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-10">
                             <input value="{{banner.image}}" readonly placeholder="click choose image" type="text" name="image" id="image1" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Animation</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="animation_image">
+                                <?php foreach($animation as $item){ ?>
+                                    <option value="{{item}}" <?php echo $banner->animtion == $item ? 'selected' : ''?> >{{item}} </option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

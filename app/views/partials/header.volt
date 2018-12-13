@@ -7,22 +7,16 @@
   <!-- - - - - - - - - - - - - - Bottom part - - - - - - - - - - - - - - - - -->
 
   <div class="bottom_part">
-
     <div class="container">
-
       <div class="row">
-
         <div class="main_header_row">
           <div class="col-sm-2 logo-content">
             <!-- - - - - - - - - - - - - - Logo - - - - - - - - - - - - - - - - -->
             <a href="/" class="logo">
-
-              <img src="{{about.logo_header}}" style="margin-left: 10px;" width="" height="115px" alt="Chemist">
-
+              <img src="{{about.logo_header}}" style="margin-left: 10px;" width="" height="115px" alt="{{about.company_name}}">
             </a>
             <!-- - - - - - - - - - - - - - End of logo - - - - - - - - - - - - - - - - -->
           </div><!--/ [col]-->
-
           <div class="col-sm-10">
             <div class="col-sm-7">
               <h2 class="color-green"><strong>{{about.company_name}}</strong></h2>
@@ -31,30 +25,19 @@
             <!-- - - - - - - - - - - - - - End call to action - - - - - - - - - - - - - - - - -->
           <div class="col-sm-5">
             <!-- - - - - - - - - - - - - - Search form - - - - - - - - - - - - - - - - -->
-            
             <form class="clearfix search" action='/tim-kiem-san-pham' id='search' method='get'>
               <input type="text" name="strSearch" tabindex="1" placeholder="<?php echo $t->_("search_holder") ?>" class="alignleft" value="<?php echo isset($strSearch) ? htmlspecialchars_decode($strSearch) : '' ?>">
               <button class="button_green def_icon_btn alignleft"></button>
-
             </form><!--/ #search-->
-            
             <!-- - - - - - - - - - - - - - End search form - - - - - - - - - - - - - - - - -->
            <div class="call_us pull-right">
-
               <span><?php echo $t->_("host_line") ?></span> <b>{{about.phone}}</b>
-
             </div><!--/ .call_us-->
           </div><!--/ [col]-->
           </div><!--/ [col]-->
-
-
-
         </div><!--/ .main_header_row-->
-
       </div><!--/ .row-->
-
     </div><!--/ .container-->
-
   </div><!--/ .bottom_part -->
 
   <!-- - - - - - - - - - - - - - End of bottom part - - - - - - - - - - - - - - - - -->
@@ -109,23 +92,6 @@
             <!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
 
             <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
-
-            <!-- <div class="nav_item size_4">
-
-              <a href="#" class="wishlist_button" data-amount="7"></a>
-              
-            </div> --><!--/ .nav_item-->
-
-            <!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - -->
-
-            <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
-
-            <!-- <div class="nav_item size_4">
-
-              <a href="#" class="compare_button" data-amount="3"></a>
-              
-            </div> --><!--/ .nav_item-->
-
             <!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - -->
           </div><!--/ .sticky_inner -->
 
@@ -137,7 +103,7 @@
 <div class="section_offset" >
 
   <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
-  <div id="bootstrap-touch-slider" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="10000" >
+  <div id="bootstrap-touch-slider" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="8000" >
 
     <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -155,12 +121,12 @@
         <div class="item <?php echo $iBanner2 == 0 ? 'active' : ''?>" >
           <img src="{{item.image}}" alt="{{item.text}}" class="slide-image" data-animation="animated {{item.animtion}}"/>
                     <div class="bs-slider-overlay"></div>
-                                <div class="container">
+                    <div class="container">
                         <div class="row">
                             <!-- Slide Text Layer -->
                             <div class="slide-text {{item.position_text}}">
-                                <div data-animation="animated {{item.animtion_text_1}}">{{item.text}}</div>
-                                <div data-animation="animated {{item.animtion_text_2}}">{{item.text2}}</div>
+                              <h3 data-animation="animated {{item.animtion_text_1}}">{{item.text}}</h3>
+                              <div data-animation="animated {{item.animtion_text_2}}"><?php echo htmlspecialchars_decode($item-> text2) ?></div>
                             </div>
                         </div>
                     </div>

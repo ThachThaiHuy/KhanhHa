@@ -7,24 +7,65 @@
                     $this -> flashSession -> clear();?>
                 <?php } ?>
                 <form class="form-horizontal" role="form" action="/admin/managebanner/add" method="post" id="addBanner">
-
-                    <!-- <div class="form-group">
-                        <label class="col-sm-2 control-label">Tiêu đề nhỏ</label>
-                        <div class="col-sm-4">
-                            <input class="form-control" name="text" maxlength="100">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tiêu Đề</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" name="title" id="title" value=""/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Tiêu đề lớn</label>
-                        <div class="col-sm-4">
-                            <input class="form-control" name="text2" maxlength="100">
+                        <label class="col-sm-2 control-label">Animation</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="animation_title">
+                                <?php foreach($animation as $item){ ?>
+                                    <option value="{{item}}" >{{item}} </option>
+                                <?php } ?>
+                                
+                            </select>
                         </div>
-                    </div> -->
-
+                    </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Image (1500 x 737)</label>
-                        <div class="col-sm-4">
-                            <input readonly placeholder="click choose image" type="text" name="image" id="image1" class="form-control">
+                        <label class="col-sm-2 control-label">Mô tả</label>
+                        <div class="col-sm-10">
+                            <textarea name="descrtiption" id="descrtiption" ></textarea>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Animation</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="animation_desctiption">
+                                <?php foreach($animation as $item){ ?>
+                                    <option value="{{item}}" >{{item}} </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Vị Trí</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="text_position">
+                                <?php 
+                                    for ($x = 0; $x < count($postion); $x++) {?>
+                                        <option value="{{postion_value[x]}}" >{{postion[x]}} </option>
+                                    <?php } 
+                                    ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Image</label>
+                        <div class="col-sm-10">
+                            <input value="" readonly placeholder="click choose image" type="text" name="image" id="image1" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Animation</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="animation_image">
+                                <?php foreach($animation as $item){ ?>
+                                    <option value="{{item}}" >{{item}} </option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

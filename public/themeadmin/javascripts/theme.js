@@ -714,6 +714,7 @@ window.theme = {};
 			this.$userPicture = this.$lock.find( '#LockUserPicture' );
 			this.$userName    = this.$lock.find( '#LockUserName' );
 			this.$userEmail   = this.$lock.find( '#LockUserEmail' );
+			this.$emailHide   = this.$lock.find( '#email_hide' );
 
 			return this;
 		},
@@ -735,8 +736,28 @@ window.theme = {};
 
 			$form.on( 'submit', function( e ) {
 				e.preventDefault();
-
-				_self.hide();
+				jQuery.ajax({
+			        url : "/admin/check",
+			        type : "post",
+			        data : $form.serialize(),
+			        //async: false,
+			        dataType : "json",
+			        beforeSend: function(){
+			            
+			        },
+			        success: function(data){
+			        	if(data.message == ""){
+			        		_self.hide();
+			        	}
+			        	else{
+			        		alert(data.message)
+			        	}
+			        	
+			        },
+			        error: function(error){
+			        }
+			    });
+				
 			});
 		},
 
@@ -747,6 +768,7 @@ window.theme = {};
 			this.$userPicture.attr( 'src', userinfo.picture );
 			this.$userName.text( userinfo.username );
 			this.$userEmail.text( userinfo.email );
+			this.$emailHide.val(userinfo.email );
 
 			this.$body.addClass( 'show-lock-screen' );
 
@@ -796,13 +818,14 @@ window.theme = {};
 								'<div class="panel-body">',
 									'<form>',
 										'<div class="current-user text-center">',
-											'<img id="LockUserPicture" src="{{picture}}" alt="John Doe" class="img-circle user-image" />',
+											'<img id="LockUserPicture" src="{{picture}}" alt="" class="img-circle user-image" />',
 											'<h2 id="LockUserName" class="user-name text-dark m-none">{{username}}</h2>',
 											'<p  id="LockUserEmail" class="user-email m-none">{{email}}</p>',
 										'</div>',
 										'<div class="form-group mb-lg">',
 											'<div class="input-group input-group-icon">',
-												'<input id="pwd" name="pwd" type="password" class="form-control input-lg" placeholder="Password" />',
+												'<input id="email_hide" name="email" type="hidden" value="{{email_hide}}"/>',
+												'<input id="pwd" name="pwd" type="password" required class="form-control input-lg" placeholder="Password" />',
 												'<span class="input-group-addon">',
 													'<span class="icon icon-lg">',
 														'<i class="fa fa-lock"></i>',
@@ -814,7 +837,7 @@ window.theme = {};
 										'<div class="row">',
 											'<div class="col-xs-6">',
 												'<p class="mt-xs mb-none">',
-													'<a href="#">Not John Doe?</a>',
+													'<a href="/admin/logout">Logout</a>',
 												'</p>',
 											'</div>',
 											'<div class="col-xs-6 text-right">',

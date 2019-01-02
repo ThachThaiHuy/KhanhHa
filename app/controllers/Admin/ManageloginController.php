@@ -45,7 +45,18 @@ class ManageloginController extends Controller
         $this -> view -> form = $form;
 
     }
-
+   public function checkPassAction() {
+                $arr['password']   = $this->request->getPost('pwd');
+                if ($this->auth->checkPassAdmin($arr)) {
+                    $arr = array('message' => "");
+                    echo json_encode($arr);
+                    exit;
+                }
+                $arr = array('message' => "Wrong password");
+                echo json_encode($arr);
+                exit;
+                //return $response->redirect("admin/login");        
+    }
     public function logoutAction() {
         $this -> auth ->removeForAdmin();
         return $this->response->redirect('admin/login');

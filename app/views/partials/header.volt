@@ -13,21 +13,21 @@
           <div class="col-sm-2 logo-content">
             <!-- - - - - - - - - - - - - - Logo - - - - - - - - - - - - - - - - -->
             <a href="/" class="logo">
-              <img src="{{about.logo_header}}" style="margin-left: 10px;" width="" height="115px" alt="{{about.company_name}}">
+              <img src="{{about.logo_header}}" style="margin-left: 10px; margin-top: -50px;" width="" height="115px" alt="{{about.company_name}}">
             </a>
             <!-- - - - - - - - - - - - - - End of logo - - - - - - - - - - - - - - - - -->
           </div><!--/ [col]-->
           <div class="col-sm-10">
-            <div class="col-sm-7">
-              <h2 class="color-green"><strong>{{about.company_name}}</strong></h2>
+            <div class="col-sm-7" style="margin-top: 10px;">
+              <h2 class="color-green text_animation"><strong>{{about.company_name}}</strong></h2>
               <h3 class="color-green">{{about.company_name_line2}}</h3>
              </div>
             <!-- - - - - - - - - - - - - - End call to action - - - - - - - - - - - - - - - - -->
           <div class="col-sm-5">
             <!-- - - - - - - - - - - - - - Search form - - - - - - - - - - - - - - - - -->
             <form class="clearfix search" action='/tim-kiem-san-pham' id='search' method='get'>
-              <input type="text" name="strSearch" tabindex="1" placeholder="<?php echo $t->_("search_holder") ?>" class="alignleft" value="<?php echo isset($strSearch) ? htmlspecialchars_decode($strSearch) : '' ?>">
-              <button class="button_green def_icon_btn alignleft"></button>
+              <input type="text" name="strSearch" tabindex="1" placeholder="<?php echo $t->_("search_holder") ?>" class="alignleft" value="<?php echo isset($strSearch) ? htmlspecialchars_decode($strSearch) : '' ?>" style=" margin-top: 5px;">
+              <button class="button_green def_icon_btn alignleft" style=" margin-top: 5px;"></button>
             </form><!--/ #search-->
             <!-- - - - - - - - - - - - - - End search form - - - - - - - - - - - - - - - - -->
            <div class="call_us pull-right">
@@ -70,19 +70,54 @@
 
                 <ul>
 
-                  <li class="<?php echo $controllerName == 'home' && $actionName == 'index' ? 'current' : '';?>"><a href="/"><?php echo $t->_("home_page") ?></a></li>
-                  <li class="<?php echo $controllerName == 'introduce' && $actionName == 'index' ? 'current' : '';?>"><a href="/gioi-thieu"><?php echo $t->_("introduct_page") ?></a></li>
+                  <li class="<?php echo $controllerName == 'home' && $actionName == 'index' ? 'current' : '';?>">
+                    <a href="/" class="three-d">
+                      <?php echo $t->_("home_page") ?>
+                        <span aria-hidden="true" class="three-d-box">
+                          <span class="front"><?php echo $t->_("home_page") ?></span>
+                          <span class="back"><?php echo $t->_("home_page") ?></span>
+                        </span>
+                      </a>
+                  </li>
+                  <li class="<?php echo $controllerName == 'introduce' && $actionName == 'index' ? 'current' : '';?>">
+                    <a href="/gioi-thieu" class="three-d">
+                      <?php echo $t->_("introduct_page") ?>
+                        <span aria-hidden="true" class="three-d-box">
+                          <span class="front"><?php echo $t->_("introduct_page") ?></span>
+                          <span class="back"><?php echo $t->_("introduct_page") ?></span>
+                        </span>
+                      </a>
+                  </li>
                   <li class="has_submenu <?php echo ($controllerName == 'newproducts' || $controllerName == 'saleproducts' || $controllerName == 'hotproducts'||$controllerName == 'categories') && $actionName == 'index' ? 'current' : '';?>">
-                      <a href="#"><?php echo $t->_("product_page") ?></a>
+                      <a href="#" class="three-d">
+                        <?php echo $t->_("product_page") ?>
+                        <span aria-hidden="true" class="three-d-box">
+                          <span class="front"><?php echo $t->_("product_page") ?></span>
+                          <span class="back"><?php echo $t->_("product_page") ?></span>
+                        </span>
+                        </a>
                       <ul class="theme_menu submenu catalog-menu">
                         {{ partial('partials/catalog')}}
                     </ul>
                   </li>
                   <li class="<?php echo $controllerName == 'partner' && ($actionName == 'index' || $actionName == 'all') ? 'current' : '';?>">
-                      <a href="/doi-tac"><?php echo $t->_("partner_page") ?></a>
+                      <a href="/doi-tac" class="three-d">
+                        <?php echo $t->_("partner_page") ?>
+                        <span aria-hidden="true" class="three-d-box">
+                          <span class="front"> <?php echo $t->_("partner_page") ?></span>
+                          <span class="back"> <?php echo $t->_("partner_page") ?></span>
+                        </span>
+                        </a>
                   </li>         
                   <!-- <li><a href="#">Bài viết</a></li> -->
-                  <li class="<?php echo $controllerName == 'contacts' && $actionName == 'index' ? 'current' : '';?>"><a href="/lien-he"><?php echo $t->_("contact_page") ?></a></li>
+                  <li class="<?php echo $controllerName == 'contacts' && $actionName == 'index' ? 'current' : '';?>">
+                    <a href="/lien-he" class="three-d">
+                      <?php echo $t->_("contact_page") ?>
+                      <span aria-hidden="true" class="three-d-box">
+                        <span class="front"> <?php echo $t->_("contact_page") ?></span>
+                        <span class="back"> <?php echo $t->_("contact_page") ?></span>
+                      </span>
+                    </a></li>
                 </ul>
 
               </nav><!--/ .main_navigation-->
@@ -120,16 +155,15 @@
         foreach ($bannerList as $item) {?>
         <div class="item <?php echo $iBanner2 == 0 ? 'active' : ''?>" >
           <img src="{{item.image}}" alt="{{item.text}}" class="slide-image" data-animation="animated {{item.animtion}}"/>
-                    <div class="bs-slider-overlay"></div>
-                    <div class="container">
+                    <!-- <div class="bs-slider-overlay"></div> -->
+                    <!-- <div class="container">
                         <div class="row">
-                            <!-- Slide Text Layer -->
                             <div class="slide-text {{item.position_text}}">
                               <h3 data-animation="animated {{item.animtion_text_1}}">{{item.text}}</h3>
                               <div data-animation="animated {{item.animtion_text_2}}"><?php echo htmlspecialchars_decode($item-> text2) ?></div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
         </div>
         <?php $iBanner2 ++;}?>
     </div>

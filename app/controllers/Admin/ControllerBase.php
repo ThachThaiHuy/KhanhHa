@@ -14,9 +14,11 @@ class ControllerBase extends Controller
         $this -> view -> about = Abouts::findFirst(array("deleted = 0"));
         $this -> view -> titleForLayout = DEFAULT_NAME;
         $this -> view -> saleKeyWords = DEFAULT_NAME;
-
+ 
         $this->user = $this -> auth -> getIdentityAdmin();
         $this -> view -> user = $this->user;
+        // var_dump($this->user);
+        // exit;
         $identity = $this -> auth -> getIdentityAdmin();
         if (!is_array($identity)) {
             $this->response->redirect("/admin/login");

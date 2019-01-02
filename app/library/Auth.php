@@ -39,6 +39,7 @@ class Auth extends Component
 
     $this->session->set('auth-identity-admin', array(
         'id' => $user->id,
+        'email' => $user->email,
         'username' => $user -> name,
         'role' => $user -> role -> name,
         'role_id' => $user -> role -> id,
@@ -46,7 +47,18 @@ class Auth extends Component
     ));
     return true;
     }
-
+    public function checkPassAdmin($credentials) {
+        $user_check = $this -> getIdentityAdmin();
+        if($user_check != null){
+            $password = sha1($credentials['password']);
+            $user = Users::findFirst(array("deleted = 0 and email = '". $user_check['email'] ."' and password='".$password."'"));
+            if ($user == false) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
     public function checkUser($credentials) {
 
         $password = sha1($credentials['password']);
@@ -68,6 +80,7 @@ class Auth extends Component
 
         $this->session->set('auth-identity', array(
             'id' => $user->id,
+            'email' => $user->email,
             'username' => $user->name,
             'role' => $user -> role -> name,
             'role_id' => $user -> role -> id,

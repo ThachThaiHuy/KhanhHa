@@ -2,7 +2,7 @@
 
 	<!-- - - - - - - - - - - - - - Footer section- - - - - - - - - - - - - - - - -->
 
-	<div class="footer_section">
+	<div class="footer_section animated transparent" data-animation="fadeInDown">
 
 	  <div class="container">
 

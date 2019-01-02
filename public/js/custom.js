@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	if (typeof viewlayout !== 'undefined') {
 		if (viewlayout == 'list') {
 			$(".list_view").click();

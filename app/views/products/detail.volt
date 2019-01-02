@@ -158,7 +158,7 @@
 
 <!-- - - - - - - - - - - - - - Related products - - - - - - - - - - - - - - - - -->
 
-<section class="section_offset">
+<section class="section_offset animated transparent" data-animation="fadeInDown" >
 
 	<h3 class="offset_title"><?php echo $t->_('related_products') ?></h3>
 

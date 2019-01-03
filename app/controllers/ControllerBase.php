@@ -59,6 +59,11 @@ class ControllerBase extends Controller
         }
         $this -> view -> sortby = $this -> session -> get('sortby');
 
+        $identity = $this -> auth -> getIdentityAdmin();
+        if (is_array($identity)) {
+            $this -> auth ->removeForAdmin();
+        }
+
     }
     public function beforeExecuteRoute(Dispatcher $dispatcher) {
 
@@ -85,7 +90,6 @@ class ControllerBase extends Controller
                 $this->response->redirect('/');
                 return false;
             }
-
         }
     }
 

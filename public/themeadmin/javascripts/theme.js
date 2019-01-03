@@ -724,8 +724,19 @@ window.theme = {};
 
 			this.$body.find( '[data-lock-screen="true"]' ).on( 'click', function( e ) {
 				e.preventDefault();
-
-				_self.show();
+				jQuery.ajax({
+			        url : "/admin/lock",
+			        type : "get",
+			        beforeSend: function(){
+			            
+			        },
+			        success: function(data){
+			        	_self.show();
+			        },
+			        error: function(error){
+			        }
+			    });
+				
 			});
 
 			return this;

@@ -41,12 +41,12 @@
         <section class="body-sign">
             <div class="center-sign">
                 <a href="/" class="logo pull-left">
-                    <img src="/themeadmin/images/logo.png" height="54" alt="Porto Admin" />
+                    <img src="/themeadmin/images/logo.png" height="54" alt="<?php echo DEFAULT_NAME?> Admin" />
                 </a>
 
                 <div class="panel panel-sign">
                     <div class="panel-title-sign mt-xl text-right">
-                        <h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i> Sign In</h2>
+                        <h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i> Đăng Nhập</h2>
                     </div>
                     <div class="panel-body">
                         <form action="/admin/login" method="post">
@@ -71,7 +71,7 @@
 
                             <div class="form-group mb-lg">
                                 <div class="clearfix">
-                                    <label class="pull-left">Password</label>
+                                    <label class="pull-left">Mật khẩu</label>
                                     <!-- <a href="pages-recover-password.html" class="pull-right">Lost Password?</a> -->
                                 </div>
                                 <div class="input-group input-group-icon">
@@ -102,10 +102,15 @@
 
                             <div class="row">
                                 <div class="col-sm-8">
+                                    <?php
+                                        if($countLogin > 3){ ?>
+                                            <a href="admin/reset-pass" class="">Đặt Lại Mật Khẩu</a>
+                                    <?php }
+                                     ?>
                                 </div>
                                 <div class="col-sm-4 text-right">
-                                    <button type="submit" class="btn btn-primary hidden-xs">Sign In</button>
-                                    <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign In</button>
+                                    <button type="submit" class="btn btn-primary hidden-xs">Đăng Nhập</button>
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Đăng Nhập</button>
                                 </div>
                             </div>
                             <!-- <p class="text-center">Don't have an account yet? <a href="pages-signup.html">Sign Up!</a> -->

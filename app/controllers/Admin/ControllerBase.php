@@ -9,18 +9,15 @@ class ControllerBase extends Controller
 {
     public $user;
     public function onConstruct() {
-
         $this -> view -> setLayout('admin');
         $this -> view -> about = Abouts::findFirst(array("deleted = 0"));
         $this -> view -> titleForLayout = DEFAULT_NAME;
         $this -> view -> saleKeyWords = DEFAULT_NAME;
- 
         $this->user = $this -> auth -> getIdentityAdmin();
         $this -> view -> user = $this->user;
-        // var_dump($this->user);
-        // exit;
         $identity = $this -> auth -> getIdentityAdmin();
         if (!is_array($identity)) {
+
             $this->response->redirect("/admin/login");
             return false;
         }
@@ -31,8 +28,11 @@ class ControllerBase extends Controller
     }
 
     public function beforeExecuteRoute(Dispatcher $dispatcher) {
-
         $controllerName = strtolower($dispatcher -> getControllerName());
+        $actionName = $dispatcher -> getActionName();
+
+        // var_dump($actionName. ' ' . $this->session->get('lock-status') . ' aaaaa');
+        // exit();
         //Only check permissions on private controllers
         if ($this -> acl -> isPrivate($controllerName)) {
 
@@ -41,16 +41,11 @@ class ControllerBase extends Controller
 
             //If there is no identity available the user is redirected to index/index
             if (!is_array($identity)) {
-                /*echo "<pre>";
-                print_r($identity);
-                exit;*/
-                //$dispatcher -> forward(array('controller' => 'index', 'action' => 'index'));
                 $this->response->redirect("/");
                 return false;
             }
-
             //Check if the user have permission to the current option
-            $actionName = $dispatcher -> getActionName();
+            
             if (!$this -> acl -> isAllowed($identity['role'], $controllerName, $actionName)) {
                 //$dispatcher -> forward(array('controller' => 'index', 'action' => 'index'));
                 $this->response->redirect("/");
@@ -58,6 +53,11 @@ class ControllerBase extends Controller
             }
 
         }
-
+        elseif($actionName != "checkPass" && $this->session->get('lock-status'))
+        {
+            $this->session->set('lock-status', false);
+            $this->response->redirect("/admin/logout");
+            return false;
+        }
     }
 }

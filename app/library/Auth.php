@@ -162,7 +162,7 @@ class Auth extends Component
             //Register the successful login
             $this->saveSuccessLogin($user);
 
-            return $this->response->redirect('admin/hososinhvien');
+            return $this->response->redirect('admin/');
             }
         }
 

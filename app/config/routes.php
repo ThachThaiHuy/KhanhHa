@@ -46,6 +46,11 @@ $router->add('/admin/check', array(
     'controller' => 'managelogin',
     'action' => 'checkPass'
 ));
+$router->add('/admin/lock', array(
+    'namespace' => 'MyApp\Controllers\Admin',
+    'controller' => 'managelogin',
+    'action' => 'Lock'
+));
 $router->add('/admin/login', array(
     'namespace' => 'MyApp\Controllers\Admin',
     'controller' => 'managelogin',

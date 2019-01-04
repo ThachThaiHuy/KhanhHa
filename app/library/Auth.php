@@ -59,6 +59,26 @@ class Auth extends Component
         }
         return false;
     }
+
+    public function ChangePassAdmin($pass) {
+        $user_check = $this -> getIdentityAdmin();
+        if($user_check != null){
+            $password = sha1($pass);
+            $user = Users::findFirst(array("deleted = 0 and email = '". $user_check['email'] ."'" ));
+            if ($user == false) {
+                return false;
+            }
+            else{
+               $user -> password =  $password ;
+               $user -> setParamsForUpdate($user_check['id']);
+               if ($user -> save()) {
+                    return true;
+               }
+            }
+            
+        }
+        return false;
+    }
     public function checkUser($credentials) {
 
         $password = sha1($credentials['password']);

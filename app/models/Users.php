@@ -136,14 +136,14 @@ class Users extends ModelBase
      */
     public function validation()
     {
-        $this->validate(
-            new Email(
-                array(
-                    'field'    => 'email',
-                    'required' => true,
-                )
-            )
-        );
+        // $this->validate(
+        //     new Email(
+        //         array(
+        //             'field'    => 'email',
+        //             'required' => true,
+        //         )
+        //     )
+        // );
 
         if ($this->validationHasFailed() == true) {
             return false;

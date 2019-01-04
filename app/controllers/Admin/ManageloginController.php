@@ -78,6 +78,33 @@ class ManageloginController extends Controller
                 exit;
                 //return $response->redirect("admin/login");        
     }
+   public function ChangePassAction() {
+            $arr['password']   = $this->request->getPost('old-pass');
+            if ($this->auth->checkPassAdmin($arr)) {
+                $newPass = $this->request->getPost('new-pass');
+                $reNewPass = $this->request->getPost('re-new-pass');
+                if($newPass == $reNewPass){
+                    if($this->auth->ChangePassAdmin($newPass)){
+                        $arr = array('message' => "Cập nhật mật khẩu thành công","status" => "1");
+                    }
+                    else{
+                        $arr = array('message' => "Cập nhật mật khẩu thất bại","status" => "2");
+                    }
+                }
+                else
+                {
+                    $arr = array('message' => "Mật khẩu xác nhân không đúng","status" => "2");
+                }
+                
+                
+                echo json_encode($arr);
+                exit;
+            }
+            $arr = array('message' => "Mật khẩu không đúng. Vui lòng nhập lại ","status" => "2");
+            echo json_encode($arr);
+            exit;
+            //return $response->redirect("admin/login");        
+    }
     public function logoutAction() {
         $this -> auth ->removeForAdmin();
         return $this->response->redirect('admin/login');

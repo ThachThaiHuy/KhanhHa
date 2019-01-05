@@ -41,15 +41,13 @@ class MyEmail extends Component
 		return $view->getContent();
 	}
 
-    public function getTemplateRegisterEvent($eventName, $registerEvent){
+    public function getTemplateRegisterEvent($user,$pass){
         $view = clone $this->view;
         $view->start();
-        $view->setVar("event_name", $eventName);
-        $view->setVar("full_name", $registerEvent -> full_name);
-        $view->setVar("email", $registerEvent -> email);
-        $view->setVar("phone", $registerEvent -> phone);
-        $view->setVar("company", $registerEvent -> company);
-        $view->setVar("number_attending", $registerEvent -> number_attending);
+        $view->setVar("name", $user -> name);
+        $view->setVar("mail", $user -> email);
+        $view->setVar("pass", $pass);
+        $view->setVar("link", $_SERVER['SERVER_NAME']."/admin/login");
         $view->setRenderLevel(View::LEVEL_ACTION_VIEW);
         $view->render('mail', 'registerevent');
         $view->finish();
@@ -74,14 +72,14 @@ class MyEmail extends Component
 		$message->send();
 	}
 
-    public function sendRegisterEvent($subject, $eventName, $registerEvent){
+    public function sendRegisterEvent($subject, $user,$pass){
         $mailer = new \Phalcon\Ext\Mailer\Manager((array)$this->config->mail);
 
         $message = $mailer->createMessage()
-                ->to($registerEvent -> email, $registerEvent -> full_name)
+                ->to($user -> email)
                 ->subject($subject)
                 ->contentType('text/html')
-                ->content($this -> getTemplateRegisterEvent($eventName, $registerEvent), 'text/html');
+                ->content($this -> getTemplateRegisterEvent($user,$pass), 'text/html');
         $message->send();
     }
 	public function sendContactPage($to, $name, $subject, $contact) {

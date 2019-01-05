@@ -39,7 +39,7 @@ class ManageloginController extends Controller
                     $arr['remember']   = $this->request->getPost('rememberme');
 
                     if ($this->auth->checkAdmin($arr)) {
-
+                        $this->session->set('count_login', 0);
                         return $response->redirect("/admin/managesites");
                     }
                     $count_login ++;
@@ -65,18 +65,19 @@ class ManageloginController extends Controller
             exit;
             //return $response->redirect("admin/login");        
     }
+
    public function checkPassAction() {
-                $arr['password']   = $this->request->getPost('pwd');
-                if ($this->auth->checkPassAdmin($arr)) {
-                    $this->session->set('lock-status', false);
-                    $arr = array('message' => "");
-                    echo json_encode($arr);
-                    exit;
-                }
-                $arr = array('message' => "Vui Lòng nhập lại Mật Khẩu");
-                echo json_encode($arr);
-                exit;
-                //return $response->redirect("admin/login");        
+        $arr['password']   = $this->request->getPost('pwd');
+        if ($this->auth->checkPassAdmin($arr)) {
+            $this->session->set('lock-status', false);
+            $arr = array('message' => "");
+            echo json_encode($arr);
+            exit;
+        }
+        $arr = array('message' => "Vui Lòng nhập lại Mật Khẩu");
+        echo json_encode($arr);
+        exit;
+        //return $response->redirect("admin/login");        
     }
    public function ChangePassAction() {
             $arr['password']   = $this->request->getPost('old-pass');

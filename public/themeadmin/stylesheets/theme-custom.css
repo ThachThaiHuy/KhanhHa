@@ -6,3 +6,8 @@
     color: black;
     margin-bottom: 30px;
 }
+
+#table-content{
+	margin-top: 10px;
+	min-height: 50px;
+}

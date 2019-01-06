@@ -12,20 +12,6 @@ class MyEmail extends Component
 {
 	protected $_transport;
 
-	public function getTemplateForgotPassWord($email, $code)
-	{
-		$view = clone $this->view;
-		$view->start();
-		//$code = Link::incrementalHash(10);
-		//save code
-		$view->setVar('code' , $code);
-
-		$view->setRenderLevel(View::LEVEL_ACTION_VIEW);
-		$view->render('mail', 'forgotpassword');
-		$view->finish();
-		return $view->getContent();
-	}
-
 	public function getTemplateAgentListing($contact, $listingName) {
 		$view = clone $this->view;
 		$view->start();
@@ -50,6 +36,16 @@ class MyEmail extends Component
         $view->setVar("link", $_SERVER['SERVER_NAME']."/admin/login");
         $view->setRenderLevel(View::LEVEL_ACTION_VIEW);
         $view->render('mail', 'registerevent');
+        $view->finish();
+        return $view->getContent();
+    }
+
+	public function getTemplateReset($user){
+        $view = clone $this->view;
+        $view->start();
+        $view->setVar('code', $user -> code);
+        $view->setRenderLevel(View::LEVEL_ACTION_VIEW);
+        $view->render('mail', 'resetpassword');//resetPass
         $view->finish();
         return $view->getContent();
     }
@@ -94,28 +90,13 @@ class MyEmail extends Component
 	}
 
 
-	public function sendForProject($to, $name, $subject, $contact, $projectName) {
+	public function sendResetPassword($subject, $user) {
 		$mailer = new \Phalcon\Ext\Mailer\Manager((array)$this->config->mail);
-
-		$message = $mailer->createMessage()
-				->to($to, $name)
-				->subject($subject)
-				->contentType('text/html')
-				->content($this -> getTemplateAgentListing($contact, $projectName), 'text/html');
-		$message->send();
-	}
-
-
-	public function sendForgotPassword($to, $subject, $code)
-	{
-
-		$mailer = new \Phalcon\Ext\Mailer\Manager((array)$this->config->mail);
-
-		$message = $mailer->createMessage()
-				->to($to, 'Member BviClub')
-				->subject($subject)
-				->contentType('text/html')
-				->content($this -> getTemplateForgotPassWord($to, $code), 'text/html');
-		$message->send();
+        $message = $mailer->createMessage()
+                ->to($user -> email)
+                ->subject($subject)
+                ->contentType('text/html')
+                ->content($this -> getTemplateReset($user), 'text/html');
+        $message->send();
 	}
 }

@@ -158,32 +158,44 @@
       <div class="modal-body">
           <div class="row">
     <div class="col-md-12">
-        <form id="msform">
+        <div id="msform">
             <!-- progressbar -->
             
             <!-- fieldsets -->
             <fieldset>
-                <h2 class="fs-title">Địa chỉ email</h2>
-                <h3 class="fs-subtitle">nhập đỉa chỉ email mà bạn muốn đặt lại mật khẩu</h3>
-                <input type="email" name="email" placeholder="Email"/>
-                <input type="button" name="next" class="next action-button" value="Next"/>
+               
+                    <h2 class="fs-title">Địa chỉ email</h2>
+                    <h3 class="fs-subtitle">nhập đỉa chỉ email mà bạn muốn đặt lại mật khẩu</h3>
+                    <form class="form-submit" id="form-step-1"> 
+                        <input type="email" name="email" id="email" placeholder="Email" required />
+                        <input type="submit" name="next" class="next action-button" value="Next"/>
+                    </form>
+                
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">Xác nhập Mã Code đổi Mật Khẩu</h2>
-                <h3 class="fs-subtitle">Nhập mã code trong thư mà bạn đã nhận được</h3>
-                <input type="text" name="code" placeholder="Mã xác nhận"/>
-                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
-                <input type="button" name="next" class="next action-button" value="Next"/>
+                
+                    <h2 class="fs-title">Xác nhập Mã Code đổi Mật Khẩu</h2>
+                    <h3 class="fs-subtitle">Nhập mã code trong thư mà bạn đã nhận được</h3>
+                    <form class="form-submit" id="form-step-2">
+                        <input type="text" name="code" placeholder="Mã xác nhận" required />
+                    <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
+                        <input type="submit" name="next" class="next action-button" value="Next"/>
+                    </form>
+                
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">Nhập mật khẩu mới</h2>
-                <h3 class="fs-subtitle">đặt lại mật khẩu</h3>
-                <input type="password" name="pass" placeholder="Password"/>
-                <input type="password" name="cpass" placeholder="Confirm Password"/>
-                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
-                <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                
+                    <h2 class="fs-title">Nhập mật khẩu mới</h2>
+                    <h3 class="fs-subtitle">đặt lại mật khẩu</h3>
+                    <form class="form-submit" id="form-step-3">
+                        <input type="password" name="pass" placeholder="Password" required />
+                        <input type="password" name="cpass" placeholder="Confirm Password" required/>
+                        <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
+                        <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                    </form>
+                
             </fieldset>
-        </form>
+        </div>
         <!-- /.link to designify.me code snippets -->
     </div>
 </div>

@@ -79,46 +79,93 @@ $(document).ready(function() {
 
 
 	//jQuery time
-var current_fs, next_fs, previous_fs; //fieldsets
+var current_fs, next_fs, previous_fs,current_control; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
+var current_step = 1;
 
-$(".next").click(function(){
+$(".form-submit").on("submit",function(e){
+	e.preventDefault();
 	if(animating) return false;
-	animating = true;
 	
 	current_fs = $(this).parent();
 	next_fs = $(this).parent().next();
-	
-	//activate next step on progressbar using the index of next_fs
-	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-	
-	//show the next fieldset
-	next_fs.show(); 
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale current_fs down to 80%
-			scale = 1 - (1 - now) * 0.2;
-			//2. bring next_fs from the right(50%)
-			left = (now * 50)+"%";
-			//3. increase opacity of next_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({
-        'transform': 'scale('+scale+')',
-        'position': 'absolute'
-      });
-			next_fs.css({'left': left, 'opacity': opacity});
-		}, 
-		duration: 800, 
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		}, 
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
+	current_control = $(this).find(".action-button");
+	current_control.prop( "disabled", true );
+	var form, link;
+	if(current_step == 1){
+		form = $(this)
+		link = "/admin/update-code"
+	}
+	else if(current_step == 2){
+		form = $('#form-step-1, #form-step-2');
+		link = "/admin/checkcode"
+	}
+	else {
+		form = $('#form-step-1, #form-step-3');
+		link = "/admin/setpass"
+	}
+	jQuery.ajax({
+	        url : link,
+	        type : "post",
+	        data : form.serialize(),
+	        dataType : "json",
+	        beforeSend: function(){
+	            
+	        },
+	        success: function(data){
+	        	current_control.prop( "disabled", false );
+	        	if(data.status == "1"){
+	        		current_step ++;
+	        		animating = true;
+					//activate next step on progressbar using the index of next_fs
+					$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+					
+					//show the next fieldset
+					next_fs.show(); 
+					//hide the current fieldset with style
+					current_fs.animate({opacity: 0}, {
+						step: function(now, mx) {
+							//as the opacity of current_fs reduces to 0 - stored in "now"
+							//1. scale current_fs down to 80%
+							scale = 1 - (1 - now) * 0.2;
+							//2. bring next_fs from the right(50%)
+							left = (now * 50)+"%";
+							//3. increase opacity of next_fs to 1 as it moves in
+							opacity = 1 - now;
+							current_fs.css({
+				        'transform': 'scale('+scale+')',
+				        'position': 'absolute'
+				      });
+							next_fs.css({'left': left, 'opacity': opacity});
+						}, 
+						duration: 800, 
+						complete: function(){
+							current_fs.hide();
+							animating = false;
+						}, 
+						//this comes from the custom easing plugin
+						easing: 'easeInOutBack'
+						
+					});
+					if(current_step == 3){
+						$("#reserForm").modal("hide");
+						$('#form-step-1, #form-step-2,#form-step-3').trigger("reset");
+						$("#progressbar li").removeClass("active");
+						$("#progressbar li").first().addClass("active");
+					}
+	        	}
+	        	else{
+	        		alert(data.message);
+	        	}
+	        },
+	        error: function(error){
+	        	current_control.prop( "disabled", false );
+	        	alert("không thể gửi request");
+	        }
+	    });
+
+
 });
 
 $(".previous").click(function(){
@@ -156,7 +203,7 @@ $(".previous").click(function(){
 	});
 });
 
-$(".submit").click(function(){
-	return false;
-})
+// $(".submit").click(function(){
+// 	return false;
+// })
 });

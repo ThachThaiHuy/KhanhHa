@@ -20,7 +20,10 @@ class ManageloginController extends Controller
         //disable layout
         $this->session->set('lock-status', false);
         $count_login = $this->session->get('count_login');
-        if($count_login == null){
+        $old_mail = $this->session->get('old_mail');
+        $email = $this->request->getPost('email');
+        if($count_login == null || $old_mail == null || $old_mail != $email){
+            $this->session->set('old_mail', $email);
             $count_login = 0;
         }
         $this->view->disableLevel(array(View::LEVEL_LAYOUT => true));
@@ -82,8 +85,8 @@ class ManageloginController extends Controller
    public function ChangePassAction() {
             $arr['password']   = $this->request->getPost('old-pass');
             if ($this->auth->checkPassAdmin($arr)) {
-                $newPass = $this->request->getPost('new-pass');
-                $reNewPass = $this->request->getPost('re-new-pass');
+                $newPass = htmlspecialchars($this->request->getPost('new-pass'), ENT_QUOTES);
+                $reNewPass = htmlspecialchars($this->request->getPost('re-new-pass'), ENT_QUOTES);
                 if($newPass == $reNewPass){
                     if($this->auth->ChangePassAdmin($newPass)){
                         $arr = array('message' => "Cập nhật mật khẩu thành công","status" => "1");

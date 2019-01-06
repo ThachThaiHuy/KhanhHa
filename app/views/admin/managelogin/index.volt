@@ -104,7 +104,7 @@
                                 <div class="col-sm-8">
                                     <?php
                                         if($countLogin > 3){ ?>
-                                            <a href="admin/reset-pass" class="">Đặt Lại Mật Khẩu</a>
+                                            <a href="#" data-toggle="modal" data-target="#reserForm" class="">Đặt Lại Mật Khẩu</a>
                                     <?php }
                                      ?>
                                 </div>
@@ -126,6 +126,8 @@
 
         <!-- Vendor -->
         <script src="/themeadmin/vendor/jquery/jquery.js"></script>
+
+        <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js' />
         <script src="/themeadmin/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
         <script src="/themeadmin/vendor/bootstrap/js/bootstrap.js"></script>
         <script src="/themeadmin/vendor/nanoscroller/nanoscroller.js"></script>
@@ -141,6 +143,54 @@
 
         <!-- Theme Initialization Files -->
         <script src="/themeadmin/javascripts/theme.init.js"></script>
+
+<!--Đổi Mật khẩu modal --->
+<div class="modal fade" id="reserForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+            <ul id="progressbar">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+    <div class="col-md-12">
+        <form id="msform">
+            <!-- progressbar -->
+            
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Địa chỉ email</h2>
+                <h3 class="fs-subtitle">nhập đỉa chỉ email mà bạn muốn đặt lại mật khẩu</h3>
+                <input type="email" name="email" placeholder="Email"/>
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Xác nhập Mã Code đổi Mật Khẩu</h2>
+                <h3 class="fs-subtitle">Nhập mã code trong thư mà bạn đã nhận được</h3>
+                <input type="text" name="code" placeholder="Mã xác nhận"/>
+                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Nhập mật khẩu mới</h2>
+                <h3 class="fs-subtitle">đặt lại mật khẩu</h3>
+                <input type="password" name="pass" placeholder="Password"/>
+                <input type="password" name="cpass" placeholder="Confirm Password"/>
+                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous"/> -->
+                <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+            </fieldset>
+        </form>
+        <!-- /.link to designify.me code snippets -->
+    </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
 
     </body>
 </html>

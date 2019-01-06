@@ -63,11 +63,36 @@ class ManageadminController extends ControllerBase {
         exit;        
     }
 
-    function RandomString()
+    public function SendEmailAction(){
+    	$user = new Users();
+    	$email = htmlspecialchars($this -> request -> getPost('Email'), ENT_QUOTES);
+    	$temp = $user -> findFirst(array("deleted = 0 and email = '".$email."'"));
+        if ($temp == false) 
+        {
+        	$arr = array('message'=>'Email nhập không tồn tại trong danh sách','data' => '','status' => '0');
+        }
+        else
+        {
+        	$code = $this->RandomString(4);
+        	$user -> code = $code;
+        	$user -> setParamsForUpdate($this -> user['id']);
+        	if($user ->save()){
+        		$mail = new MyEmail();
+	            $mail -> sendForgotPassword($email,"Đăng Ki Admin",$code);
+	            $arr = array('message'=>'','data' => '','status' => '1');
+        	}
+        	else{
+        		$arr = array('message'=>'Có lổi xay ra trong lúc thực hiện','data' => '','status' => '0');
+        	}
+
+        }
+    }
+
+    function RandomString($count = 10)
 	{
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $randstring = '';
-	    for ($i = 0; $i < 10; $i++) {
+	    for ($i = 0; $i < $count; $i++) {
 	        $randstring .= $characters[rand(0, strlen($characters))].'';
 	    }
 	    return $randstring;

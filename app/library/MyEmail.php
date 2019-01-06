@@ -18,7 +18,7 @@ class MyEmail extends Component
 		$view->start();
 		//$code = Link::incrementalHash(10);
 		//save code
-		$view->setVar("linkForgotpass", DOMAIN_NAME. "/forgotpassword/checkchangepassword/?email=". $email ."&code=".md5($email.$code));
+		$view->setVar('code' , $code);
 
 		$view->setRenderLevel(View::LEVEL_ACTION_VIEW);
 		$view->render('mail', 'forgotpassword');

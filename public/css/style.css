@@ -2178,7 +2178,6 @@
 		.main_navigation > ul li{ position: relative; }
 
 		.main_navigation:not(.full_width_nav) > ul > li > a{
-			border: 1px solid #eaeaea;
 			background-color: #fff;
 			overflow: visible;
 			padding: 11px 18px 10px;

@@ -11,14 +11,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Dumping database structure for chemdb
-DROP DATABASE IF EXISTS `chemdb`;
-CREATE DATABASE IF NOT EXISTS `chemdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-USE `chemdb`;
-
 -- Dumping structure for table chemdb.abouts
-DROP TABLE IF EXISTS `abouts`;
 CREATE TABLE IF NOT EXISTS `abouts` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `address` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -46,11 +39,10 @@ CREATE TABLE IF NOT EXISTS `abouts` (
 -- Dumping data for table chemdb.abouts: ~0 rows (approximately)
 /*!40000 ALTER TABLE `abouts` DISABLE KEYS */;
 INSERT INTO `abouts` (`id`, `address`, `site_title`, `site_name`, `company_name`, `company_name_line2`, `logo_header`, `logo_footer`, `content`, `phone`, `email`, `facebook`, `googleplus`, `youtube`, `skype`, `updated_at`, `created_at`, `updated_by`, `created_by`, `deleted`) VALUES
-	(1, '151 Bến Vân Đồn, Phường 6, Quận 4', 'HACO Trading', 'yourdomain.com', 'CÔNG TY TNHH TM DV XNK KHÁNH HÀ', 'KHACH HA CO., Ltd', '/public/files/images/logo.png', '/public/files/images/logo.png', '&lt;h2 style=&quot;font-style:italic;&quot;&gt;&lt;span style=&quot;color:#FF0000;&quot;&gt;&lt;b&gt;C&amp;Ocirc;NG TY TNHH TM DV XUẤT NHẬP KHẨU&amp;nbsp;KH&amp;Aacute;NH H&amp;Agrave; (HACO limitted)&lt;/b&gt;&lt;/span&gt;&lt;/h2&gt;\r\n\r\n&lt;p&gt;L&amp;agrave; c&amp;ocirc;ng ty chuy&amp;ecirc;n cung ứng h&amp;oacute;a chất cho c&amp;aacute;c đơn vị c&amp;ocirc;ng ty sản xuất tr&amp;ecirc;n phạm vi to&amp;agrave;n quốc.&lt;/p&gt;\r\n\r\n&lt;p&gt;Với nhiều năm kinh nghiệm v&amp;agrave; ph&amp;aacute;t triển ng&amp;agrave;y nay c&amp;ocirc;ng ty&amp;nbsp;&lt;strong&gt;KH&amp;Aacute;NH H&amp;Agrave;&lt;/strong&gt;&amp;nbsp;đ&amp;atilde; c&amp;oacute; đầy đủ đội ngũ nh&amp;acirc;n vi&amp;ecirc;n h&amp;ugrave;ng mạnh v&amp;agrave; cơ sở vật chất vững tr&amp;atilde;i, đảm bảo phục vụ tốt mọi nhu cầu của qu&amp;yacute; kh&amp;aacute;ch h&amp;agrave;ng.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;C&amp;ocirc;ng ty ch&amp;uacute;ng t&amp;ocirc;i chuy&amp;ecirc;n:&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;ol&gt;\r\n	&lt;li&gt;&lt;strong&gt;&lt;em&gt;Mua b&amp;aacute;n c&amp;aacute;c sản phẩm h&amp;oacute;a chất c&amp;ocirc;ng nghiệp phục vụ ng&amp;agrave;nh sản xuất.&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;&lt;em&gt;Tư vấn v&amp;agrave; Mua b&amp;aacute;n Phụ gia, hương liệu m&amp;agrave;u &amp;nbsp;thực phẩm&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;&lt;em&gt;Tư vấn v&amp;agrave; &amp;nbsp;cung cấp dịch vụ về xử l&amp;yacute; nước&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Mua b&amp;aacute;n ho&amp;aacute; chất chuy&amp;ecirc;n ng&amp;agrave;nh thuỷ sản, tẩy rửa, s&amp;aacute;t khuẩn,&amp;hellip;.&lt;/strong&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;&lt;em&gt;Cung cấp c&amp;aacute;c sản phẩm nước tẩy rửa dung trong gia đ&amp;igrave;nh, nh&amp;agrave; h&amp;agrave;ng v&amp;agrave; kh&amp;aacute;ch sạn (Home care).&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\r\n&lt;/ol&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;&lt;em&gt;​&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;C&amp;ocirc;ng ty chuy&amp;ecirc;n kinh doanh, nhập khẩu c&amp;aacute;c sản phẩm ho&amp;aacute; chất tinh khiết từ c&amp;aacute;c h&amp;atilde;ng lớn tr&amp;ecirc;n thế giới như Samsung, Xi long, ihuada.. C&amp;aacute;c sản phẩm h&amp;oacute;a chất c&amp;ocirc;ng nghiệp d&amp;ugrave;ng cho c&amp;aacute;c ng&amp;agrave;nh c&amp;ocirc;ng nghiệp như: Dệt nhuộm, mạ điện, khai kho&amp;aacute;ng, sơn, giấy, xử l&amp;yacute; nước cấp, nước thải,..&lt;/p&gt;\r\n\r\n&lt;p&gt;Nhập khẩu một số ho&amp;aacute; chất c&amp;ocirc;ng nghiệp sử dụng trong c&amp;aacute;c ng&amp;agrave;nh c&amp;ocirc;ng nghiệp như mạ,thực phẩm, giấy, khai kho&amp;aacute;ng, thức ăn gia s&amp;uacute;c, ho&amp;aacute; dược v&amp;agrave; xử l&amp;yacute; m&amp;ocirc;i trường của c&amp;aacute;c nh&amp;agrave; sản xuất c&amp;oacute; uy t&amp;iacute;n tr&amp;ecirc;n thế giới như : Th&amp;aacute;i Lan ,Ph&amp;aacute;p &amp;yacute;, Đức , &amp;nbsp;T&amp;acirc;y Ban nha , Nhật, H&amp;agrave;n Quốc, Trung quốc, Mỹ, Đ&amp;agrave;i Loan..&lt;/p&gt;\r\n\r\n&lt;p&gt;Định hướng ph&amp;aacute;t triển mũi nhọn của c&amp;ocirc;ng ty hiện nay l&amp;agrave; đẩy mạnh kinh doanh c&amp;aacute;c sản phẩm chuy&amp;ecirc;n s&amp;acirc;u về ho&amp;aacute; học c&amp;oacute; hiệu quả sử dụng cao, th&amp;acirc;n thiện với m&amp;ocirc;i trường sống v&amp;agrave; kh&amp;ocirc;ng ngừng n&amp;acirc;ng cao&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;HACO&lt;/strong&gt;&amp;nbsp;&amp;quot;&lt;strong&gt;S&amp;aacute;ng tạo &amp;ndash; Đổi mới&amp;nbsp; - Ph&amp;aacute;t triển&amp;quot; &amp;nbsp;để phục vụ kh&amp;aacute;ch h&amp;agrave;ng &amp;nbsp;!&lt;/strong&gt;&lt;/p&gt;\r\n', '0919 493 663 - 0965 316 208', 'ththhuy@gmail.com', NULL, NULL, NULL, NULL, '2018-12-08 16:26:20', '2018-12-08 16:26:20', 1, 1, 0);
+	(1, '151 Bến Vân Đồn, Phường 6, Quận 4', 'HACO Trading', 'yourdomain.com', 'CÔNG TY TNHH TM DV XNK KHÁNH HÀ', 'KHACH HA CO., Ltd', '/public/files/images/logo.png', '/public/files/images/logo.png', '&lt;h2 style=&quot;font-style:italic;&quot;&gt;&lt;span style=&quot;color:#FF0000;&quot;&gt;&lt;b&gt;C&amp;Ocirc;NG TY TNHH TM DV XUẤT NHẬP KHẨU&amp;nbsp;KH&amp;Aacute;NH H&amp;Agrave; (HACO limitted)&lt;/b&gt;&lt;/span&gt;&lt;/h2&gt;\r\n\r\n&lt;p&gt;L&amp;agrave; c&amp;ocirc;ng ty chuy&amp;ecirc;n cung ứng h&amp;oacute;a chất cho c&amp;aacute;c đơn vị c&amp;ocirc;ng ty sản xuất tr&amp;ecirc;n phạm vi to&amp;agrave;n quốc.&lt;/p&gt;\r\n\r\n&lt;p&gt;Với nhiều năm kinh nghiệm v&amp;agrave; ph&amp;aacute;t triển ng&amp;agrave;y nay c&amp;ocirc;ng ty&amp;nbsp;&lt;strong&gt;KH&amp;Aacute;NH H&amp;Agrave;&lt;/strong&gt;&amp;nbsp;đ&amp;atilde; c&amp;oacute; đầy đủ đội ngũ nh&amp;acirc;n vi&amp;ecirc;n h&amp;ugrave;ng mạnh v&amp;agrave; cơ sở vật chất vững tr&amp;atilde;i, đảm bảo phục vụ tốt mọi nhu cầu của qu&amp;yacute; kh&amp;aacute;ch h&amp;agrave;ng.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;C&amp;ocirc;ng ty ch&amp;uacute;ng t&amp;ocirc;i chuy&amp;ecirc;n:&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;ol&gt;\r\n	&lt;li&gt;&lt;strong&gt;&lt;em&gt;Mua b&amp;aacute;n c&amp;aacute;c sản phẩm h&amp;oacute;a chất c&amp;ocirc;ng nghiệp phục vụ ng&amp;agrave;nh sản xuất.&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;&lt;em&gt;Tư vấn v&amp;agrave; Mua b&amp;aacute;n Phụ gia, hương liệu m&amp;agrave;u &amp;nbsp;thực phẩm&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;&lt;em&gt;Tư vấn v&amp;agrave; &amp;nbsp;cung cấp dịch vụ về xử l&amp;yacute; nước&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;Mua b&amp;aacute;n ho&amp;aacute; chất chuy&amp;ecirc;n ng&amp;agrave;nh thuỷ sản, tẩy rửa, s&amp;aacute;t khuẩn,&amp;hellip;.&lt;/strong&gt;&lt;/li&gt;\r\n	&lt;li&gt;&lt;strong&gt;&lt;em&gt;Cung cấp c&amp;aacute;c sản phẩm nước tẩy rửa dung trong gia đ&amp;igrave;nh, nh&amp;agrave; h&amp;agrave;ng v&amp;agrave; kh&amp;aacute;ch sạn (Home care).&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;\r\n&lt;/ol&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;&lt;em&gt;​&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;C&amp;ocirc;ng ty chuy&amp;ecirc;n kinh doanh, nhập khẩu c&amp;aacute;c sản phẩm ho&amp;aacute; chất tinh khiết từ c&amp;aacute;c h&amp;atilde;ng lớn tr&amp;ecirc;n thế giới như Samsung, Xi long, ihuada.. C&amp;aacute;c sản phẩm h&amp;oacute;a chất c&amp;ocirc;ng nghiệp d&amp;ugrave;ng cho c&amp;aacute;c ng&amp;agrave;nh c&amp;ocirc;ng nghiệp như: Dệt nhuộm, mạ điện, khai kho&amp;aacute;ng, sơn, giấy, xử l&amp;yacute; nước cấp, nước thải,..&lt;/p&gt;\r\n\r\n&lt;p&gt;Nhập khẩu một số ho&amp;aacute; chất c&amp;ocirc;ng nghiệp sử dụng trong c&amp;aacute;c ng&amp;agrave;nh c&amp;ocirc;ng nghiệp như mạ,thực phẩm, giấy, khai kho&amp;aacute;ng, thức ăn gia s&amp;uacute;c, ho&amp;aacute; dược v&amp;agrave; xử l&amp;yacute; m&amp;ocirc;i trường của c&amp;aacute;c nh&amp;agrave; sản xuất c&amp;oacute; uy t&amp;iacute;n tr&amp;ecirc;n thế giới như : Th&amp;aacute;i Lan ,Ph&amp;aacute;p &amp;yacute;, Đức , &amp;nbsp;T&amp;acirc;y Ban nha , Nhật, H&amp;agrave;n Quốc, Trung quốc, Mỹ, Đ&amp;agrave;i Loan..&lt;/p&gt;\r\n\r\n&lt;p&gt;Định hướng ph&amp;aacute;t triển mũi nhọn của c&amp;ocirc;ng ty hiện nay l&amp;agrave; đẩy mạnh kinh doanh c&amp;aacute;c sản phẩm chuy&amp;ecirc;n s&amp;acirc;u về ho&amp;aacute; học c&amp;oacute; hiệu quả sử dụng cao, th&amp;acirc;n thiện với m&amp;ocirc;i trường sống v&amp;agrave; kh&amp;ocirc;ng ngừng n&amp;acirc;ng cao&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;HACO&lt;/strong&gt;&amp;nbsp;&amp;quot;&lt;strong&gt;S&amp;aacute;ng tạo &amp;ndash; Đổi mới&amp;nbsp; - Ph&amp;aacute;t triển&amp;quot; &amp;nbsp;để phục vụ kh&amp;aacute;ch h&amp;agrave;ng &amp;nbsp;!&lt;/strong&gt;&lt;/p&gt;\r\n', '0919 493 663 - 0965 316 208', 'khanhhaltd2018@gmail.com', NULL, NULL, NULL, NULL, '2019-02-25 21:18:53', '2018-12-08 16:26:20', 1, 1, 0);
 /*!40000 ALTER TABLE `abouts` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.banner
-DROP TABLE IF EXISTS `banner`;
 CREATE TABLE IF NOT EXISTS `banner` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -79,7 +71,6 @@ INSERT INTO `banner` (`id`, `image`, `animtion`, `text`, `text2`, `position_text
 /*!40000 ALTER TABLE `banner` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.categories
-DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -103,7 +94,6 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `image`, `deleted`, `updated_by`
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.category_details
-DROP TABLE IF EXISTS `category_details`;
 CREATE TABLE IF NOT EXISTS `category_details` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -145,7 +135,6 @@ INSERT INTO `category_details` (`id`, `name`, `slug`, `category_id`, `image`, `c
 /*!40000 ALTER TABLE `category_details` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.contacts
-DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` bigint(20) DEFAULT '0',
@@ -181,7 +170,6 @@ INSERT INTO `contacts` (`id`, `product_id`, `user_id`, `name`, `adress`, `email`
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.feedbacks
-DROP TABLE IF EXISTS `feedbacks`;
 CREATE TABLE IF NOT EXISTS `feedbacks` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -202,7 +190,6 @@ CREATE TABLE IF NOT EXISTS `feedbacks` (
 /*!40000 ALTER TABLE `feedbacks` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.manufactures
-DROP TABLE IF EXISTS `manufactures`;
 CREATE TABLE IF NOT EXISTS `manufactures` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -237,7 +224,6 @@ INSERT INTO `manufactures` (`id`, `name`, `slug`, `deleted`, `updated_by`, `crea
 /*!40000 ALTER TABLE `manufactures` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.orders
-DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
@@ -260,7 +246,6 @@ CREATE TABLE IF NOT EXISTS `orders` (
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.order_details
-DROP TABLE IF EXISTS `order_details`;
 CREATE TABLE IF NOT EXISTS `order_details` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `order_id` bigint(20) NOT NULL DEFAULT '0',
@@ -280,7 +265,6 @@ CREATE TABLE IF NOT EXISTS `order_details` (
 /*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.partner
-DROP TABLE IF EXISTS `partner`;
 CREATE TABLE IF NOT EXISTS `partner` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -305,7 +289,6 @@ INSERT INTO `partner` (`id`, `name`, `image`, `link_web`, `deleted`, `created_by
 /*!40000 ALTER TABLE `partner` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.permissions
-DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `role_id` int(10) unsigned NOT NULL,
@@ -320,7 +303,6 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.posts
-DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -342,7 +324,6 @@ CREATE TABLE IF NOT EXISTS `posts` (
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.products
-DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `category_id` bigint(20) NOT NULL DEFAULT '0',
@@ -412,7 +393,6 @@ INSERT INTO `products` (`id`, `category_id`, `category_detail_ids`, `name`, `slu
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.roles
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -431,7 +411,6 @@ INSERT INTO `roles` (`id`, `name`, `active`) VALUES
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.ships
-DROP TABLE IF EXISTS `ships`;
 CREATE TABLE IF NOT EXISTS `ships` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `order_id` bigint(20) NOT NULL,
@@ -465,7 +444,6 @@ INSERT INTO `ships` (`id`, `order_id`, `delivery_cost`, `first_name`, `last_name
 /*!40000 ALTER TABLE `ships` ENABLE KEYS */;
 
 -- Dumping structure for table chemdb.users
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -493,13 +471,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table chemdb.users: ~2 rows (approximately)
+-- Dumping data for table chemdb.users: ~1 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `first_name`, `name`, `email`, `password`, `phone`, `mobile`, `role_id`, `avatar`, `address1`, `address2`, `city`, `post_code`, `country`, `accept_receive_mail`, `code`, `sub_domain`, `use_domain`, `domain`, `parent_id`, `created_by`, `updated_by`, `created_at`, `updated_at`, `deleted`) VALUES
 	(1, 'sys-admin', 'sys-admin', 'admin@gmail.com', 'b15a606858a63476cbaa22ee1195bbf3abc56a14', '123456781', NULL, 1, '/files/images/user_profile.png', NULL, NULL, NULL, NULL, NULL, 1, '1', '0', 0, NULL, 0, 0, 1, '2016-04-18 14:19:36', '2019-01-04 23:04:05', 0),
-	(8, NULL, 'Thai Huy', 'ththhuy@gmail.com', 'b61f93e2293e041e0f06094b59500c9f644885b9', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, 1, '1', NULL, 0, NULL, 0, 1, 1, '2019-01-05 21:46:40', '2019-01-05 21:46:40', 0);
+	(10, NULL, 'Thai Huy', 'ththhuy@gmail.com', '7a3f066ec911e3991b656aba894d0305c386c0c1', NULL, NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, 1, '1', NULL, 0, NULL, 0, 1, -1, '2019-01-06 21:04:23', '2019-01-06 22:01:10', 0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

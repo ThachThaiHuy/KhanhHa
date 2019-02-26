@@ -19,8 +19,8 @@
           </div><!--/ [col]-->
           <div class="col-sm-10">
             <div class="col-sm-7" style="margin-top: 10px;">
-              <h2 class="color-green text_animation"><strong>{{about.company_name}}</strong></h2>
-              <h3 class="color-green">{{about.company_name_line2}}</h3>
+              <h2 class="color-green text_animation company-name"><strong>{{about.company_name}}</strong></h2>
+              <h3 class="color-green text_line_2">{{about.company_name_line2}}</h3>
              </div>
             <!-- - - - - - - - - - - - - - End call to action - - - - - - - - - - - - - - - - -->
           <div class="col-sm-5">

@@ -4,6 +4,8 @@ use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\View;
 use Phalcon\Http\Response;
 use MyApp\Forms\LoginForm;
+use MyApp\Model\Users;
+use MyApp\MyEmail;
 
 class ManageloginController extends Controller
 {
@@ -60,7 +62,20 @@ class ManageloginController extends Controller
         $this -> view -> form = $form;
 
     }
-
+        public function getAdminAction() {
+        $userModel = new Users();
+        $user = $userModel -> find(array("deleted = 0 and role_id = 2"));
+        $view = clone $this->view;
+        $view->start();
+        $view->setVar("items", $user);
+        $view->setRenderLevel(View::LEVEL_ACTION_VIEW);
+        $view->render('admin/partials', 'table_list');
+        $view->finish();
+        $html = $view->getContent();
+        $arr = array('data' => $html);
+        echo json_encode($arr);
+        exit;        
+    }
    public function LockAction() {
             $this->session->set('lock-status', true);
             $arr = array('message' => "Lock");

@@ -23,14 +23,14 @@ return new \Phalcon\Config(array(
     ),
     'mail' => array(
         'driver'     => 'smtp',
-        'host'       => 'smtp.gmail.com',
-        'port'       => 587,
-        'encryption' => 'tls',
-        'username'   => '',
-        'password'   => '',
+        'host'       => 'host01.emailserver.vn',
+        'port'       => 465,
+        'encryption' => 'ssl',
+        'username'   => 'info@khanhhatrading.com',
+        'password'   => 'khanhhatrading88',
         'from'       => array(
-            'email' => '',
-            'name'  => 'Hang xach tay Conan'
+            'email' => 'info@khanhhatrading.com',
+            'name'  => 'KHANH HA CHEMICALS'
         )
     )
 ));

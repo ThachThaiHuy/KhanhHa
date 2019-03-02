@@ -55,28 +55,28 @@ $router->add('/admin/changePass', array(
 
 $router->add('/admin/getlist', array(
     'namespace' => 'MyApp\Controllers\Admin',
-    'controller' => 'manageadmin',
+    'controller' => 'managelogin',
     'action' => 'getAdmin'
 ));
 $router->add('/admin/add', array(
     'namespace' => 'MyApp\Controllers\Admin',
-    'controller' => 'manageadmin',
+    'controller' => 'manage',
     'action' => 'add'
 ));
 $router->add('/admin/update-code', array(
     'namespace' => 'MyApp\Controllers\Admin',
-    'controller' => 'manageadmin',
+    'controller' => 'manage',
     'action' => 'UpdateCode'
 ));
 
 $router->add('/admin/checkcode', array(
     'namespace' => 'MyApp\Controllers\Admin',
-    'controller' => 'manageadmin',
+    'controller' => 'manage',
     'action' => 'CheckCode'
 ));
 $router->add('/admin/setpass', array(
     'namespace' => 'MyApp\Controllers\Admin',
-    'controller' => 'manageadmin',
+    'controller' => 'manage',
     'action' => 'ChangePass'
 ));
 $router->add('/admin/lock', array(

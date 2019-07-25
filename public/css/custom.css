@@ -547,7 +547,9 @@ input:valid ,textarea:valid{
     pointer-events: none;
     box-sizing: border-box;
 }
-
+.introduct-info, .introduct-info h1, .introduct-info h2 {
+    color: #000000 !important;
+}
 
 /*------------------------------------------------------*/
 /* RESPONSIVE
